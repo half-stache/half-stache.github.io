@@ -1,0 +1,56 @@
+/* Design tokens. Every color, size, and rhythm on the site comes from here. */
+:root {
+  color-scheme: light dark;
+
+  --paper: #f4efe6;
+  --paper-2: #ebe4d8;
+  --ink: #15120f;
+  --ink-2: #5c5650;
+  --ink-3: #8a837a;
+  --line: rgba(21, 18, 15, 0.14);
+  --line-strong: rgba(21, 18, 15, 0.4);
+  --red: #c0271c;
+  --red-soft: rgba(192, 39, 28, 0.12);
+  --white: #fffdf8;
+
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --step--1: clamp(0.8125rem, 0.79rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.6vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.25rem + 1.3vw, 2.25rem);
+  --step-3: clamp(2rem, 1.4rem + 3vw, 3.75rem);
+  --step-4: clamp(2.25rem, 1.4rem + 4.2vw, 4.75rem);
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: clamp(4rem, 3rem + 5vw, 8rem);
+
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+  --measure: 62ch;
+  --max: 76rem;
+  --radius: 2px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 500ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121010;
+    --paper-2: #1b1816;
+    --ink: #f1ece3;
+    --ink-2: #aca49a;
+    --ink-3: #7b746c;
+    --line: rgba(241, 236, 227, 0.14);
+    --line-strong: rgba(241, 236, 227, 0.4);
+    --red: #e8503f;
+    --red-soft: rgba(232, 80, 63, 0.16);
+    --white: #f1ece3;
+  }
+}
