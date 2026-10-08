@@ -1,6 +1,6 @@
 // Motion and small interactions for the home page, kept deliberately small.
 // Reveals: elements marked data-reveal get `is-in` when they enter the viewport.
-// Disclosures: "more" buttons toggle their panel. The Spotify player loads only on request.
+// The Spotify player loads only on request.
 export function initMotion() {
   const root = document.documentElement;
 
@@ -22,17 +22,6 @@ export function initMotion() {
     } else {
       for (const el of targets) el.classList.add('is-in');
     }
-  }
-
-  for (const btn of document.querySelectorAll<HTMLButtonElement>('.more__btn')) {
-    const panel = document.getElementById(btn.getAttribute('aria-controls') || '');
-    if (!panel) continue;
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') !== 'true';
-      btn.setAttribute('aria-expanded', String(open));
-      panel.classList.toggle('is-open', open);
-      btn.textContent = open ? 'less' : 'more';
-    });
   }
 
   for (const btn of document.querySelectorAll<HTMLButtonElement>('[data-load-embed]')) {
