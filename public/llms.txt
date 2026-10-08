@@ -13,7 +13,7 @@
 - Riverstock: a hydrology model of the Little Red River below Greers Ferry Dam that predicts river conditions at each access point. Model and data pipeline built; API and apps in progress.
 - LavaRise (https://apps.apple.com/us/app/lavarise/id6759515609): a pixel-art climbing game for iPhone with 100 levels and 10 chapters.
 - Hutch's RV Park (https://hutchsrv.com): website, brand, and content system for the family RV park in Searcy, Arkansas.
-- Elrod Construction & Services: website, logo, and hero video for a home builder in Texarkana.
+- Elrod Construction & Services (https://elrodconstructionservices.com): website, logo, and hero video for a home builder in Texarkana.
 
 ## Background
 
