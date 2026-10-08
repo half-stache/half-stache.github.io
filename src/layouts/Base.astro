@@ -19,8 +19,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const home = Astro.url.pathname === '/';
 const nav: [string, string][] = [
   ['Work', '#work'],
-  ['Services', '#services'],
-  ['About', '#about'],
+  ['Music', '#music'],
+  ['Listening', '#listening'],
   ['Contact', '#contact'],
 ];
 ---
@@ -33,8 +33,7 @@ const nav: [string, string][] = [
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121010" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#121010" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={fullTitle} />

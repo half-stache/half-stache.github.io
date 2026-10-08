@@ -6,20 +6,12 @@ import { site } from '../data/site';
   <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
   <div class="wrap hero__in">
     <div class="hero__mark" data-hero>
-      <Mark size={168} label="half-stache: a mustache, red on the left, white on the right" />
+      <Mark size={200} label="half-stache: a mustache, red on the left, white on the right" />
     </div>
-    <p class="eyebrow" data-hero>half-stache. {site.person}'s work, in one place.</p>
-    <h1 class="display hero__title" data-hero>
-      Apps for alpha-gal patients, a river model for wading anglers, and websites for small businesses in Arkansas.
-    </h1>
-    <p class="hero__lede" data-hero>
-      I'm {site.person}. I design it, build it, and ship it: iOS apps, data pipelines, and small-business websites.
-      Client work runs through {site.company}.
-    </p>
-    <div class="hero__cta" data-hero>
-      <a class="btn" href="#work">See the work</a>
-      <a class="btn btn--ghost" href={`mailto:${site.email}`}>Email {site.person}</a>
-    </div>
+    <p class="eyebrow" data-hero>half-stache</p>
+    <h1 class="display hero__title" data-hero>{site.fullName}</h1>
+    <p class="hero__line" data-hero>Apps, websites, a river model, and music.</p>
+    <p data-hero><a class="hero__down" href="#short">The short version ↓</a></p>
   </div>
 </section>
 <script>

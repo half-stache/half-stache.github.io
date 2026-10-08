@@ -6,6 +6,9 @@ export const site = {
   company: 'Hutchware LLC',
   email: 'halfstache@hotmail.com',
   github: 'https://github.com/half-stache',
-  description:
-    "half-stache is Sam's work in one place: apps for alpha-gal patients, a river model for wading anglers, and websites for small businesses in Arkansas.",
+  spotify: 'https://open.spotify.com/artist/2EEOIWtPu49X7MN430bNVI',
+  spotifyId: '2EEOIWtPu49X7MN430bNVI',
+  // Paste the channel URL here when known (YouTube app: your channel, Share, copy link).
+  youtube: '',
+  description: 'Sam Hutcherson. Apps, websites, a river model, and music.',
 };

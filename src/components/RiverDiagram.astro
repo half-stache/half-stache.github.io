@@ -1,0 +1,39 @@
+---
+// Release-wave travel time down the Little Red River, from Riverstock's access-point inventory.
+// Miles below Greers Ferry Dam and the model's estimated lag in hours. Ramsey's lag is measured.
+const points = [
+  { mi: 0, name: 'Greers Ferry Dam', h: 0 },
+  { mi: 5.5, name: 'Cow Shoals', h: 2.3 },
+  { mi: 10, name: 'Winkley Bridge', h: 4.1 },
+  { mi: 15.9, name: 'Lobo Landing', h: 6.5 },
+  { mi: 19.3, name: 'Mossy Shoal', h: 7.9 },
+  { mi: 24, name: 'Pangburn', h: 9.8 },
+  { mi: 29, name: 'Ramsey Access', h: 11.9 },
+];
+const W = 800, H = 300, x0 = 40, x1 = 760, yRiver = 150;
+const x = (mi: number) => x0 + (mi / 29) * (x1 - x0);
+// A gently wandering river line through the same x range.
+const river = `M${x0},${yRiver} C${x(4)},${yRiver - 22} ${x(8)},${yRiver + 26} ${x(12)},${yRiver + 4} S${x(20)},${yRiver - 24} ${x(24)},${yRiver + 6} S${x(28)},${yRiver + 18} ${x1},${yRiver - 6}`;
+---
+<figure class="diagram" aria-label="Estimated release-wave travel time down the Little Red River, by access point">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12">
+    <text x={x0} y="28" fill="var(--ink-2)" letter-spacing="1">RELEASE WAVE, HOURS AFTER GENERATION STARTS</text>
+    <path d={river} fill="none" stroke="var(--red)" stroke-width="2.5" stroke-linecap="round" />
+    {points.map((p, i) => {
+      const px = x(p.mi);
+      const up = i % 2 === 0;
+      const ly = up ? yRiver - 48 : yRiver + 62;
+      return (
+        <g>
+          <line x1={px} y1={yRiver} x2={px} y2={up ? ly + 14 : ly - 24} stroke="var(--line-strong)" stroke-width="1" />
+          <circle cx={px} cy={yRiver} r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5" />
+          <text x={px} y={ly} text-anchor={i === 0 ? 'start' : i === points.length - 1 ? 'end' : 'middle'} fill="var(--ink)">{p.name}</text>
+          <text x={px} y={ly + 16} text-anchor={i === 0 ? 'start' : i === points.length - 1 ? 'end' : 'middle'} fill="var(--ink-2)">
+            {i === 0 ? 'mile 0' : `${p.h} h · mi ${p.mi}`}
+          </text>
+        </g>
+      );
+    })}
+    <text x={x0} y={H - 16} fill="var(--ink-3)">Model estimates. Ramsey measured: 12 h median over 121 events, not the folk figure of 8 h.</text>
+  </svg>
+</figure>

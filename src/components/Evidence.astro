@@ -1,0 +1,11 @@
+---
+import { evidence } from '../data/evidence';
+---
+<ol class="evidence">
+  {evidence.map((e) => (
+    <li class="ev" data-reveal>
+      <span class="ev__when">{e.when}</span>
+      <span class="ev__text">{e.text}</span>
+    </li>
+  ))}
+</ol>

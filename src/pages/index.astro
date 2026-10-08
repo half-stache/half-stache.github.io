@@ -1,88 +1,57 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import Evidence from '../components/Evidence.astro';
+import WorkRow from '../components/WorkRow.astro';
+import Music from '../components/Music.astro';
+import { projects } from '../data/projects';
 import { site } from '../data/site';
-
-const all = (await getCollection('projects', ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order,
-);
-const groups = [
-  { key: 'apps', label: 'Apps and products', items: all.filter((p) => p.data.category === 'apps') },
-  { key: 'web', label: 'Web design and branding', items: all.filter((p) => p.data.category === 'web') },
-].filter((g) => g.items.length > 0);
-let n = 0;
 ---
 <Base>
   <Hero />
 
-  <section id="work" class="section" aria-labelledby="work-title">
+  <section id="short" class="section" aria-labelledby="short-title">
     <div class="wrap">
       <header class="section__head" data-reveal>
-        <h2 id="work-title" class="section__title">Selected work</h2>
-        <p class="section__note">Only finished or actively used work is listed. Unfinished projects stay off this page until they're real.</p>
+        <h2 id="short-title" class="section__title">The short version</h2>
       </header>
-      {groups.map((g) => (
-        <div class="group">
-          <h3 class="group__title" data-reveal>{g.label}</h3>
-          <ol class="cards">
-            {g.items.map((p) => <ProjectCard project={p} number={++n} />)}
-          </ol>
-        </div>
-      ))}
+      <Evidence />
     </div>
   </section>
 
-  <section id="services" class="section" aria-labelledby="services-title">
+  <section id="work" class="section" aria-labelledby="work-title">
     <div class="wrap">
       <header class="section__head" data-reveal>
-        <h2 id="services-title" class="section__title">Working together</h2>
-        <p class="section__note">
-          Client work runs through {site.company}. To keep it simple: half-stache is me, and {site.company} is the company I do client work through.
-        </p>
+        <h2 id="work-title" class="section__title">Work</h2>
+        <p class="section__note">Only finished or actively used work is here.</p>
       </header>
-      <ul class="services">
-        <li class="service" data-reveal>
-          <h3>Websites for small businesses</h3>
-          <p>Design, build, hosting, and domain setup, with a content system the owner can edit without calling me.</p>
-        </li>
-        <li class="service" data-reveal>
-          <h3>iOS apps</h3>
-          <p>Native Swift and SwiftUI, from the first sketch through App Store review.</p>
-        </li>
-        <li class="service" data-reveal>
-          <h3>Data and automation</h3>
-          <p>Ingestion pipelines, scheduled jobs, and models that turn public data into something a person can use.</p>
-        </li>
-        <li class="service" data-reveal>
-          <h3>Branding and assets</h3>
-          <p>Logo tracing and cleanup, icon sets, print-ready files, and short hero video cut from footage you already have.</p>
-        </li>
-      </ul>
-      <div class="services-cta" data-reveal>
-        <p class="prose">If you're weighing a project, write and describe it in a few sentences. I'll tell you plainly whether it's something I should build, and what it would take.</p>
-        <p style="margin-top: var(--space-m)"><a class="btn" href={`mailto:${site.email}?subject=Project%20inquiry`}>Email {site.person} about a project</a></p>
+      <div class="work">
+        {projects.map((p, i) => <WorkRow project={p} index={i} />)}
       </div>
     </div>
   </section>
 
-  <section id="about" class="section" aria-labelledby="about-title">
+  <section id="music" class="section" aria-labelledby="music-title">
     <div class="wrap">
       <header class="section__head" data-reveal>
-        <h2 id="about-title" class="section__title">About</h2>
+        <h2 id="music-title" class="section__title">Music</h2>
       </header>
-      <div class="prose" data-reveal>
-        <p>
-          I'm a one-person shop. I've shipped iOS apps and a Chrome extension, built sites in Next.js and Astro,
-          written Python pipelines against federal data, and made a game or two. I like problems where the data is
-          messy and the people on the other end are real.
-        </p>
+      <Music />
+    </div>
+  </section>
+
+  <section id="listening" class="section" aria-labelledby="listen-title">
+    <div class="wrap">
+      <header class="section__head" data-reveal>
+        <h2 id="listen-title" class="section__title">Listening</h2>
+      </header>
+      <div data-reveal>
         <blockquote class="verse">
-          <p>Establish the work of our hands.</p>
-          <cite>Psalm 90:17</cite>
+          <p>Speak, for your servant hears.</p>
+          <cite>1 Samuel 3:10</cite>
         </blockquote>
-        <p>That's the posture here. The work is something to steward well, not something to polish for applause.</p>
+        <p class="listen__text">Listening first. Know the heart of the customer, then apply technical wisdom to it. That is the whole method.</p>
+        <p class="listen__text">Client work runs through {site.company}.</p>
       </div>
     </div>
   </section>
@@ -91,12 +60,13 @@ let n = 0;
     <div class="wrap">
       <header class="section__head" data-reveal>
         <h2 id="contact-title" class="section__title">Contact</h2>
-        <p class="section__note">Email is best. I read everything and answer within a few days.</p>
       </header>
       <div data-reveal>
         <a class="contact__email" href={`mailto:${site.email}`}>{site.email}</a>
         <div class="contact__links">
-          <a href={site.github}>GitHub</a>
+          <a class="pill" href={site.github}>GitHub ↗</a>
+          <a class="pill" href={site.spotify}>Spotify ↗</a>
+          {site.youtube && <a class="pill" href={site.youtube}>YouTube ↗</a>}
         </div>
       </div>
     </div>

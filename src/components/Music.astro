@@ -1,0 +1,17 @@
+---
+import { site } from '../data/site';
+const embed = `https://open.spotify.com/embed/artist/${site.spotifyId}?utm_source=generator&theme=0`;
+---
+<div class="music">
+  <div data-reveal>
+    <p class="row__kind">Since 18</p>
+    <p class="row__line" style="margin-top: var(--space-xs)">First as 2NDSAMUEL, now under my own name. Lately, beats with hard drums.</p>
+    <div class="row__links">
+      <a class="pill" href={site.spotify}>Spotify ↗</a>
+      {site.youtube && <a class="pill" href={site.youtube}>YouTube ↗</a>}
+    </div>
+  </div>
+  <div class="music__embed" data-reveal="right" data-embed={embed}>
+    <button class="music__cta" type="button" data-load-embed>▶ Load the Spotify player</button>
+  </div>
+</div>
