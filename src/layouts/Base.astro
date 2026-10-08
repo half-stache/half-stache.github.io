@@ -1,0 +1,75 @@
+---
+import '@fontsource-variable/fraunces/full.css';
+import '@fontsource-variable/fraunces/full-italic.css';
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/500.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Mark from '../components/Mark.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props { title?: string; description?: string; ogImage?: string }
+const { title, description = site.description, ogImage = '/media/og.png' } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : `${site.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const home = Astro.url.pathname === '/';
+const nav: [string, string][] = [
+  ['Work', '#work'],
+  ['Services', '#services'],
+  ['About', '#about'],
+  ['Contact', '#contact'],
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121010" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      // Entrance motion is opt-in: only when JS runs and the visitor hasn't asked for reduced motion.
+      // If the motion script hasn't taken over within 2.5s, drop the class so nothing stays hidden.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var root = document.documentElement;
+        root.classList.add('js');
+        setTimeout(function () {
+          if (!root.classList.contains('motion-ready')) root.classList.remove('js');
+        }, 2500);
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-head">
+      <div class="wrap site-head__in">
+        <a class="brand" href="/" aria-label="half-stache home">
+          <Mark size={30} decorative />
+          <span>half-stache</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          {nav.map(([label, hash]) => <a href={home ? hash : `/${hash}`}>{label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

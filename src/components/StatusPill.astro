@@ -1,0 +1,6 @@
+---
+interface Props { status: 'shipped' | 'in-progress' | 'research'; note?: string }
+const { status, note } = Astro.props;
+const label = { shipped: 'Shipped', 'in-progress': 'In progress', research: 'Research' }[status];
+---
+<span class={`status status--${status}`} title={note}>{label}</span>

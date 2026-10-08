@@ -1,0 +1,17 @@
+---
+import Mark from './Mark.astro';
+import { site } from '../data/site';
+---
+<footer class="site-foot">
+  <div class="wrap site-foot__in">
+    <p class="site-foot__brand">
+      <Mark size={22} decorative />
+      <span>half-stache is {site.person}'s personal site. Client work: {site.company}.</span>
+    </p>
+    <nav aria-label="Footer">
+      <a href={site.github}>GitHub</a>
+      <a href="/privacy.html">LavaRise privacy policy</a>
+    </nav>
+    <p class="site-foot__fine">Built with Astro. Hosted on GitHub Pages. No analytics, no cookies.</p>
+  </div>
+</footer>

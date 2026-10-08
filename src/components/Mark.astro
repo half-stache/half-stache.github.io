@@ -1,0 +1,28 @@
+---
+// The half-stache mark: one mustache, left half red, right half paper, one ink outline.
+// Swap the path for a traced version of the real thing when Sam sends a photo or logo file.
+interface Props { size?: number; class?: string; label?: string; decorative?: boolean }
+const { size = 32, class: cls = '', label = 'half-stache', decorative = false } = Astro.props;
+const h = Math.round(size * 0.42);
+const uid = Math.random().toString(36).slice(2, 8);
+const d = 'M100,30 C94,16 78,8 60,12 C38,17 22,36 8,52 C3,58 6,66 13,63 C28,56 44,62 60,58 C76,54 90,46 100,38 C110,46 124,54 140,58 C156,62 172,56 187,63 C194,66 197,58 192,52 C178,36 162,17 140,12 C122,8 106,16 100,30 Z';
+---
+<svg
+  class={`mark ${cls}`.trim()}
+  width={size}
+  height={h}
+  viewBox="0 0 200 84"
+  role={decorative ? undefined : 'img'}
+  aria-label={decorative ? undefined : label}
+  aria-hidden={decorative ? 'true' : undefined}
+  fill="none"
+>
+  <defs>
+    <path id={`s-${uid}`} d={d} />
+    <clipPath id={`l-${uid}`}><rect x="0" y="0" width="100" height="84" /></clipPath>
+    <clipPath id={`r-${uid}`}><rect x="100" y="0" width="100" height="84" /></clipPath>
+  </defs>
+  <use href={`#s-${uid}`} clip-path={`url(#l-${uid})`} fill="var(--red)" />
+  <use href={`#s-${uid}`} clip-path={`url(#r-${uid})`} fill="var(--white)" />
+  <use href={`#s-${uid}`} stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" />
+</svg>

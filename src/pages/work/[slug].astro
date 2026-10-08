@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import StatusPill from '../../components/StatusPill.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', ({ data }) => !data.draft);
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, summary, year, role, stack, status, statusNote, links, category } = project.data;
+const categoryLabel = category === 'apps' ? 'Apps and products' : 'Web design and branding';
+---
+<Base title={title} description={summary}>
+  <article class="study">
+    <div class="wrap">
+      <a class="study__back" href="/#work">← All work</a>
+      <header class="study__head">
+        <p class="eyebrow">{categoryLabel} · {year}</p>
+        <h1 class="display study__title">{title}</h1>
+        <p class="lede">{summary}</p>
+      </header>
+      <dl class="study__meta">
+        <div>
+          <dt>Status</dt>
+          <dd><StatusPill status={status} /> {statusNote && <span>· {statusNote}</span>}</dd>
+        </div>
+        <div>
+          <dt>Role</dt>
+          <dd>{role}</dd>
+        </div>
+        <div>
+          <dt>Stack</dt>
+          <dd><ul>{stack.map((s) => <li>{s}</li>)}</ul></dd>
+        </div>
+        {links.length > 0 && (
+          <div>
+            <dt>Links</dt>
+            <dd><ul>{links.map((l) => <li><a href={l.url}>{l.label}</a></li>)}</ul></dd>
+          </div>
+        )}
+      </dl>
+      <div class="prose">
+        <Content />
+      </div>
+      <p class="study__foot">Source for this project is private. Ask if you'd like a walkthrough.</p>
+    </div>
+  </article>
+</Base>
