@@ -18,26 +18,11 @@ Requires Node 22 (see `.nvmrc`).
 
 ## Add or edit a project
 
-Each project is one Markdown file in `src/content/projects/`. The filename is the URL slug
-(`vectorshield.md` becomes `/work/vectorshield/`). Copy an existing file and fill in the front matter:
+Projects live in `src/data/projects.ts`, one object each: title, kind, status, a single line, links, a note,
+up to three short facts for the "more" panel, and image stems. Screenshots go in `src/assets/work/` as WebP
+(desktop about 1600 px wide, phone about 800 px) and are referenced by file stem.
 
-```yaml
-title: Project name
-category: apps          # apps | web
-year: "2026"
-role: What you did
-stack: [Swift, Supabase]
-status: shipped         # shipped | in-progress | research
-statusNote: One honest line about where it stands
-links:
-  - label: example.com
-    url: https://example.com
-summary: One sentence for the card on the home page.
-order: 6                # position within its category
-draft: false            # true hides it from the site
-```
-
-The body below the front matter is the case study. Keep it concrete: what it is, who it's for, the hard part, status.
+The "short version" lines live in `src/data/evidence.ts`.
 
 House rules for copy: no em dashes, no bragging, specific numbers, honest status. Nothing unfinished goes on the site.
 

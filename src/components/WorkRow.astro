@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { Project } from '../data/projects';
+import RiverDiagram from './RiverDiagram.astro';
+import LavaTile from './LavaTile.astro';
+
+interface Props { project: Project; index: number }
+const { project, index } = Astro.props;
+const { title, kind, status, line, links, note, facts, media } = project;
+
+const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/work/*.webp', { eager: true });
+const pick = (stem?: string) => (stem ? shots[`../assets/work/${stem}.webp`]?.default : undefined);
+const desktop = pick(media.desktop);
+const phone = pick(media.phone);
+const statusLabel = status === 'shipped' ? 'Shipped' : 'In progress';
+const id = `more-${project.slug}`;
+const side = index % 2 === 0 ? 'left' : 'right';
+---
+<article class="row" id={project.slug}>
+  <div class="row__media" data-reveal={side}>
+    {media.special === 'river' && <RiverDiagram />}
+    {media.special === 'lava' && <LavaTile />}
+    {desktop && (
+      <div class="shot shot--desktop">
+        <Image src={desktop} alt={`${title} website, desktop`} widths={[640, 960, 1280]} sizes="(min-width: 56em) 55vw, 100vw" loading={index === 0 ? 'eager' : 'lazy'} />
+      </div>
+    )}
+    {phone && (
+      <div class="shot shot--phone">
+        <Image src={phone} alt={`${title} website, phone`} widths={[240, 400]} sizes="30vw" loading="lazy" />
+      </div>
+    )}
+  </div>
+  <div class="row__body" data-reveal>
+    <p class="row__kind">{kind}</p>
+    <h3 class="row__title">{title}</h3>
+    <p class="row__line">{line}</p>
+    <div class="row__links">
+      <span class={`status status--${status}`}>{statusLabel}</span>
+      {links.map((l) => <a class="pill" href={l.url}>{l.label} ↗</a>)}
+      {note && <span class="row__note">{note}</span>}
+    </div>
+    <div class="more">
+      <button class="more__btn" type="button" aria-expanded="false" aria-controls={id}>more</button>
+      <div class="more__body" id={id}>
+        <div>
+          <ul class="more__list">
+            {facts.map((f) => <li>{f}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

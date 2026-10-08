@@ -6,12 +6,13 @@ import { site } from '../data/site';
   <div class="wrap site-foot__in">
     <p class="site-foot__brand">
       <Mark size={22} decorative />
-      <span>half-stache is {site.person}'s personal site. Client work: {site.company}.</span>
+      <span>half-stache is {site.fullName}. Client work: {site.company}.</span>
     </p>
     <nav aria-label="Footer">
       <a href={site.github}>GitHub</a>
+      <a href={site.spotify}>Spotify</a>
       <a href="/privacy.html">LavaRise privacy policy</a>
     </nav>
-    <p class="site-foot__fine">Built with Astro. Hosted on GitHub Pages. No analytics, no cookies.</p>
+    <p class="site-foot__fine">Built with Astro. Hosted on GitHub Pages. No analytics, no cookies. The Spotify player loads only when you ask for it.</p>
   </div>
 </footer>
