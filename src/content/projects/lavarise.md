@@ -3,20 +3,20 @@ title: LavaRise
 category: apps
 year: "2026"
 role: Design, development, App Store release
-stack: [iOS, Google AdMob, In-app purchases, App Tracking Transparency]
+stack: [iOS, Pixel art, Google AdMob, In-app purchases]
 status: shipped
-statusNote: Released on iOS
+statusNote: On the App Store
 links:
+  - label: App Store
+    url: https://apps.apple.com/us/app/lavarise/id6759515609
   - label: Privacy policy
     url: /privacy.html
-summary: A mobile game for iOS with daily rewards and achievements, no account required. Progress stays on the device.
+summary: Slingshot upward to escape rising lava. 100 levels across 10 volcanic chapters, 44 achievements, pixel art, no account required.
 order: 3
 ---
 ## What it is
 
-LavaRise is a mobile game for iOS. It is free to play, supported by ads, with optional in-app purchases.
-
-<!-- Sam: add two or three sentences on the gameplay, the App Store link (in `links` above), and screenshots. Nothing on this page is invented; it only states what the privacy policy and store setup establish. -->
+LavaRise is a pixel-art climber for iPhone. You slingshot upward through a vertical course to stay ahead of rising lava: 100 levels across 10 volcanic chapters, from the Molten Core up to Orbit. Launch angle, critical-hit timing, and mid-air boosts decide the run. Gadgets to unlock and upgrade along the way: platforms, a grappling hook, a dash, and a jetpack. Star scoring with par challenges, 44 achievements, and daily rewards. Free to play, supported by ads, with optional in-app purchases.
 
 ## Built to respect the player
 
@@ -28,4 +28,4 @@ LavaRise is a mobile game for iOS. It is free to play, supported by ads, with op
 
 ## Status
 
-Released on iOS. The [privacy policy](/privacy.html) is published on this site.
+On the [App Store](https://apps.apple.com/us/app/lavarise/id6759515609). The [privacy policy](/privacy.html) is published on this site.
