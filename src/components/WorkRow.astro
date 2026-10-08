@@ -7,49 +7,30 @@ import LavaTile from './LavaTile.astro';
 
 interface Props { project: Project; index: number }
 const { project, index } = Astro.props;
-const { title, kind, status, line, links, note, facts, media } = project;
+const { title, kind, text, link, aside, media } = project;
 
 const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/work/*.webp', { eager: true });
-const pick = (stem?: string) => (stem ? shots[`../assets/work/${stem}.webp`]?.default : undefined);
-const desktop = pick(media.desktop);
-const phone = pick(media.phone);
-const statusLabel = status === 'shipped' ? 'Shipped' : 'In progress';
-const id = `more-${project.slug}`;
-const side = index % 2 === 0 ? 'left' : 'right';
+const image = media.image ? shots[`../assets/work/${media.image}.webp`]?.default : undefined;
 ---
-<article class="row" id={project.slug}>
-  <div class="row__media" data-reveal={side}>
+<article class="project" id={project.slug}>
+  <div class="project__media" data-reveal>
     {media.special === 'river' && <RiverDiagram />}
     {media.special === 'lava' && <LavaTile />}
-    {desktop && (
-      <div class="shot shot--desktop">
-        <Image src={desktop} alt={`${title} website, desktop`} widths={[640, 960, 1280]} sizes="(min-width: 56em) 55vw, 100vw" loading={index === 0 ? 'eager' : 'lazy'} />
-      </div>
-    )}
-    {phone && (
-      <div class="shot shot--phone">
-        <Image src={phone} alt={`${title} website, phone`} widths={[240, 400]} sizes="30vw" loading="lazy" />
+    {image && (
+      <div class="shot">
+        <Image src={image} alt={`The ${title} website`} widths={[720, 1200, 1600]} sizes="(min-width: 76rem) 76rem, 100vw" loading={index === 0 ? 'eager' : 'lazy'} />
       </div>
     )}
   </div>
-  <div class="row__body" data-reveal>
-    <p class="row__kind">{kind}</p>
-    <h3 class="row__title">{title}</h3>
-    <p class="row__line">{line}</p>
-    <div class="row__links">
-      <span class={`status status--${status}`}>{statusLabel}</span>
-      {links.map((l) => <a class="pill" href={l.url}>{l.label} ↗</a>)}
-      {note && <span class="row__note">{note}</span>}
+  <div class="project__text" data-reveal>
+    <div>
+      <h3 class="project__title">{title}</h3>
+      <p class="project__kind">{kind}</p>
     </div>
-    <div class="more">
-      <button class="more__btn" type="button" aria-expanded="false" aria-controls={id}>more</button>
-      <div class="more__body" id={id}>
-        <div>
-          <ul class="more__list">
-            {facts.map((f) => <li>{f}</li>)}
-          </ul>
-        </div>
-      </div>
+    <div class="project__body">
+      <p>{text}</p>
+      {link && <p><a class="link" href={link.url}>{link.label}</a></p>}
+      {aside && <p class="project__aside">{aside}</p>}
     </div>
   </div>
 </article>

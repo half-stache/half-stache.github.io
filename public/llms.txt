@@ -1,0 +1,20 @@
+# half-stache (Sam Hutcherson)
+
+> Sam Hutcherson is a mechanical engineer and software developer. He builds iOS apps, websites for small businesses, and a hydrology model of the Little Red River in Arkansas, and he releases music under his own name. Client work runs through Hutchware LLC.
+
+- Site: https://half-stache.github.io
+- Email: halfstache@hotmail.com
+- GitHub: https://github.com/half-stache
+- Spotify: https://open.spotify.com/artist/2EEOIWtPu49X7MN430bNVI
+
+## Work
+
+- VectorShield (https://vectorshield.app): an iOS and Apple Watch app for people with alpha-gal syndrome. It scans products, checks medications against FDA data, and finds safe food, tuned to one of four sensitivity levels. A Chrome extension does the same on retail sites.
+- Riverstock: a hydrology model of the Little Red River below Greers Ferry Dam that predicts river conditions at each access point. Model and data pipeline built; API and apps in progress.
+- LavaRise (https://apps.apple.com/us/app/lavarise/id6759515609): a pixel-art climbing game for iPhone with 100 levels and 10 chapters.
+- Hutch's RV Park (https://hutchsrv.com): website, brand, and content system for the family RV park in Searcy, Arkansas.
+- Elrod Construction & Services: website, logo, and hero video for a home builder in Texarkana.
+
+## Background
+
+Mechanical engineering degree, valedictorian and summa cum laude. Winner of a Startup Junkie healthcare boot camp. Former account manager at a family insurance agency, where he built document filing automation that saves each account manager thirty to sixty minutes a day.
