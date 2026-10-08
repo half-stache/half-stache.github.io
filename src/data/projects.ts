@@ -46,7 +46,7 @@ export const projects: Project[] = [
     title: 'Elrod Construction & Services',
     kind: 'Website, logo, and video',
     text: 'Elrod Construction & Services builds homes in Texarkana. The owner needed a site, so I designed and built one on Astro, traced the logo from a raster original, and cut a hero video from the company’s own drone footage. Adding a project to the portfolio is as simple as sending a photo.',
-    aside: 'The custom domain is on its way.',
+    link: { label: 'Visit elrodconstructionservices.com', url: 'https://elrodconstructionservices.com' },
     media: { image: 'elrod-home-desktop' },
   },
 ];
