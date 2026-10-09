@@ -3,19 +3,29 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import type { Project } from '../data/projects';
 import RiverDiagram from './RiverDiagram.astro';
-import LavaTile from './LavaTile.astro';
 
 interface Props { project: Project; index: number }
 const { project, index } = Astro.props;
-const { title, kind, text, link, aside, media } = project;
+const { title, kind, text, link, aside, media, icon } = project;
 
 const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/work/*.webp', { eager: true });
-const image = media.image ? shots[`../assets/work/${media.image}.webp`]?.default : undefined;
+const pick = (stem?: string) => (stem ? shots[`../assets/work/${stem}.webp`]?.default : undefined);
+const image = pick(media.image);
+const phones = (media.phones ?? []).map(pick).filter(Boolean) as ImageMetadata[];
+const iconImg = pick(icon);
 ---
 <article class="project" id={project.slug}>
   <div class="project__media" data-reveal>
     {media.special === 'river' && <RiverDiagram />}
-    {media.special === 'lava' && <LavaTile />}
+    {phones.length > 0 && (
+      <div class="phones">
+        {phones.map((ph, i) => (
+          <div class="phone">
+            <Image src={ph} alt={`${title} on iPhone, screen ${i + 1} of ${phones.length}`} widths={[320, 480, 640]} sizes="(min-width: 56em) 24rem, 70vw" loading={index === 0 ? 'eager' : 'lazy'} />
+          </div>
+        ))}
+      </div>
+    )}
     {image && (
       <div class="shot">
         <Image src={image} alt={`The ${title} website`} widths={[720, 1200, 1600]} sizes="(min-width: 76rem) 76rem, 100vw" loading={index === 0 ? 'eager' : 'lazy'} />
@@ -24,6 +34,7 @@ const image = media.image ? shots[`../assets/work/${media.image}.webp`]?.default
   </div>
   <div class="project__text" data-reveal>
     <div>
+      {iconImg && <Image class="project__icon" src={iconImg} alt="" width={96} height={96} loading="lazy" />}
       <h3 class="project__title">{title}</h3>
       <p class="project__kind">{kind}</p>
     </div>
