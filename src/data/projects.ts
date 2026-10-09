@@ -6,7 +6,8 @@ export type Project = {
   text: string;
   link?: { label: string; url: string };
   aside?: string;
-  media: { image?: string; special?: 'river' | 'lava' };
+  icon?: string;
+  media: { image?: string; phones?: string[]; special?: 'river' };
 };
 
 export const projects: Project[] = [
@@ -16,7 +17,8 @@ export const projects: Project[] = [
     kind: 'iOS and Apple Watch app, Chrome extension, website',
     text: 'VectorShield is an app for people with alpha-gal syndrome, the tick-borne allergy to mammalian products. It scans products, checks medications against FDA data, and finds safe food, all tuned to one of four sensitivity levels, and a Chrome extension does the same on retail sites. I built it because I wish I’d had it when I was learning I had alpha-gal syndrome.',
     link: { label: 'Visit vectorshield.app', url: 'https://vectorshield.app' },
-    media: { image: 'vectorshield-home-desktop' },
+    icon: 'vectorshield-icon',
+    media: { phones: ['vectorshield-overview', 'vectorshield-trends', 'vectorshield-restaurants'] },
   },
   {
     slug: 'riverstock',
@@ -31,7 +33,8 @@ export const projects: Project[] = [
     kind: 'iPhone game',
     text: 'LavaRise is a pixel-art climbing game. You slingshot upward to outrun rising lava through 100 levels and 10 chapters. I made it for fun and to learn the full path from pixel art to App Store review.',
     link: { label: 'Get it on the App Store', url: 'https://apps.apple.com/us/app/lavarise/id6759515609' },
-    media: { special: 'lava' },
+    icon: 'lavarise-icon',
+    media: { phones: ['lavarise-lava', 'lavarise-grapple', 'lavarise-chapters'] },
   },
   {
     slug: 'hutchs-rv-park',
