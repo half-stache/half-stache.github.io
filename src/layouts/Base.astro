@@ -13,7 +13,7 @@ import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
 
 interface Props { title?: string; description?: string; ogImage?: string; jsonLd?: boolean }
-const { title, description = site.description, ogImage = '/media/og.png', jsonLd = false } = Astro.props;
+const { title, description = site.description, ogImage = '/media/og.jpg', jsonLd = false } = Astro.props;
 const ld = jsonLd
   ? {
       '@context': 'https://schema.org',
@@ -25,6 +25,7 @@ const ld = jsonLd
           alternateName: 'half-stache',
           url: String(Astro.site),
           email: site.email,
+          image: new URL('/media/sam.jpg', Astro.site).href,
           jobTitle: 'Software developer and mechanical engineer',
           worksFor: { '@type': 'Organization', name: site.company },
           sameAs: [site.github, site.spotify, site.youtube].filter(Boolean),

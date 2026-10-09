@@ -1,15 +1,29 @@
 ---
+import { Image } from 'astro:assets';
 import Mark from './Mark.astro';
 import { site } from '../data/site';
+import portrait from '../assets/sam.webp';
 ---
 <section class="hero" id="top">
   <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
   <div class="wrap hero__in">
-    <div class="hero__mark" data-hero>
-      <Mark size={200} label="half-stache: a mustache, red on the left, white on the right" />
+    <div class="hero__text">
+      <div class="hero__mark" data-hero>
+        <Mark size={160} label="half-stache: a mustache, red on the left, white on the right" />
+      </div>
+      <h1 class="display hero__title" data-hero>{site.fullName}</h1>
+      <p class="hero__line" data-hero>{site.tagline}</p>
     </div>
-    <h1 class="display hero__title" data-hero>{site.fullName}</h1>
-    <p class="hero__line" data-hero>{site.tagline}</p>
+    <div class="hero__photo" data-hero>
+      <Image
+        src={portrait}
+        alt="Sam Hutcherson at the river, in a cap, with a mustache that is red on one side and white on the other"
+        widths={[480, 720, 1100]}
+        sizes="(min-width: 56em) 30rem, 100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
   </div>
 </section>
 <script>
