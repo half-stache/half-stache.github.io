@@ -38,7 +38,7 @@ def card(screen_path, icon_path, name):
 
 SETS = {
     'vectorshield': ('vectorshield-icon.webp', 'VectorShield',
-                     ['vectorshield-overview.webp', 'vectorshield-medication.webp', 'vectorshield-restaurants.webp']),
+                     ['vectorshield-meds.webp', 'vectorshield-medication.webp', 'vectorshield-restaurants.webp']),
     'lavarise': ('lavarise-icon.webp', 'LavaRise',
                  ['lavarise-lava.webp', 'lavarise-grapple.webp', 'lavarise-chapters.webp']),
 }

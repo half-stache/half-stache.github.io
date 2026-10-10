@@ -19,9 +19,15 @@ const files: [string, string][] = [
   ['mark-1024-light.png', 'Mark on light, 1024 px'],
   ['mark-512-transparent.png', 'Mark on transparent, 512 px'],
   ['avatar-1024.png', 'Avatar, 1024 px'],
-  ['wordmark-half-stache.svg', 'half-stache wordmark'],
-  ['wordmark-sam-hutcherson.svg', 'Sam Hutcherson wordmark'],
-  ['wordmark-hutchware.svg', 'Hutchware wordmark'],
+  ['wordmark-half-stache-on-dark.svg', 'half-stache wordmark, paper, for dark backgrounds'],
+  ['wordmark-half-stache-on-light.svg', 'half-stache wordmark, ink, for light backgrounds'],
+  ['wordmark-sam-hutcherson-on-dark.svg', 'Sam Hutcherson wordmark, paper, for dark backgrounds'],
+  ['wordmark-sam-hutcherson-on-light.svg', 'Sam Hutcherson wordmark, ink, for light backgrounds'],
+  ['wordmark-hutchware-on-dark.svg', 'Hutchware wordmark, red, for dark backgrounds'],
+  ['wordmark-hutchware-on-light.svg', 'Hutchware wordmark, deep red, for light backgrounds'],
+  ['wordmark-half-stache.svg', 'half-stache wordmark that takes the color of the page it sits in'],
+  ['wordmark-sam-hutcherson.svg', 'Sam Hutcherson wordmark that takes the color of the page'],
+  ['wordmark-hutchware.svg', 'Hutchware wordmark that takes the color of the page'],
   ['tokens.css', 'Colors and type as CSS variables'],
   ['tokens.json', 'Colors, type, and rules as JSON'],
 ];
@@ -56,7 +62,12 @@ const files: [string, string][] = [
           <div class="wordmark" set:html={wmHalf} />
           <div class="wordmark" set:html={wmSam} />
         </div>
-        <p class="prose" style="margin-top: var(--space-l)">half-stache is the person. Hutchware LLC is the company that client work runs through, and it gets a wordmark only. The two never appear side by side, so nobody has to work out which is which.</p>
+        <div class="wordmark-tile" aria-label="The wordmarks on a light background">
+          <div class="wordmark" set:html={wmHalf} />
+          <div class="wordmark" set:html={wmSam} />
+        </div>
+        <p class="prose" style="margin-top: var(--space-l)">On a dark background the wordmark is paper. On a light background it is ink, never paper. Each one is a separate file below.</p>
+        <p class="prose" style="margin-top: var(--space-m)">half-stache is the person. Hutchware LLC is the company that client work runs through, and it gets a wordmark only. The two never appear side by side, so nobody has to work out which is which.</p>
         <div class="wordmarks" style="margin-top: var(--space-m)">
           <div class="wordmark wordmark--red" set:html={wmHutch} />
         </div>

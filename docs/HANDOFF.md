@@ -57,13 +57,14 @@ Store listing points at it.
 - Hutchware LLC is named once as the company client work runs through. half-stache is the person.
 - Scripture appears once, plainly: 1 Samuel 3:10, chosen for the theme of listening.
 - Dark mode is the look. The mark, the typeface, and the hero current are keepers.
+- On a light background the wordmark is ink, never paper. The brand folder carries on-dark and on-light files for each wordmark.
 
 ## Where the assets came from
 
 | Project | Source |
 |---|---|
 | VectorShield site | `half-stache/VectorShield` `web/`, built locally with placeholder Supabase env and captured |
-| VectorShield app screens | `half-stache/AGSMonitor` `VectorShield-Web/public/screenshots/website/light` (June 2026 set, the one vectorshield.app uses; the `appstore/iphone_6_9` set is from February and is stale) |
+| VectorShield app screens | `half-stache/AGSMonitor` `VectorShield-Web/public/screenshots/website/light` (June 2026 set, the one vectorshield.app uses; the `appstore/iphone_6_9` set is from February and is stale). The Overview screen with the risk graph is an experimental feature and stays off the site and the profile until Sam says otherwise (2026-10-10); the trio is Meds home, a medication check, restaurants |
 | VectorShield icon | `AGSMonitor` `VectorShield-Web/public/app-icon.png` |
 | LavaRise screens and icon | `half-stache/speedRecurse` `fastlane/screenshots/en-US` and `icon.png` (February 2026 release set; nothing newer exists) |
 | Hutch's RV Park | `half-stache/hutchrv`, built locally with placeholder Keystatic env and captured |

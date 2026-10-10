@@ -13,7 +13,7 @@ I'm a mechanical engineer by degree and a software developer by trade. I started
 - [Elrod Construction & Services](https://elrodconstructionservices.com): website, logo, and hero video for a home builder in Texarkana.
 
 <p>
-  <img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/vectorshield.gif" width="49%" alt="VectorShield on an iPhone, cycling through the overview with today's risk score, a medication check, and the restaurant finder">
+  <img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/vectorshield.gif?v=2" width="49%" alt="VectorShield on an iPhone, cycling through the medication and product search, a medication check, and the restaurant finder">
   <img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/lavarise.gif" width="49%" alt="LavaRise on an iPhone, cycling through a climb above rising lava, the grappling hook, and the chapter select screen">
 </p>
 
