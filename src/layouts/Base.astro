@@ -11,6 +11,11 @@ import '../styles/global.css';
 import Mark from '../components/Mark.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
+// The three font files that paint above the fold, imported as URLs so the preload hints carry the same
+// hashed names the stylesheet uses. Vite emits each file once.
+import frauncesUrl from '@fontsource-variable/fraunces/files/fraunces-latin-full-normal.woff2?url';
+import sansUrl from '@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url';
+import monoUrl from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
 
 interface Props { title?: string; description?: string; ogImage?: string; jsonLd?: boolean; noindex?: boolean }
 const { title, description = site.description, ogImage = '/media/og.jpg', jsonLd = false, noindex = false } = Astro.props;
@@ -99,6 +104,9 @@ const nav: [string, string][] = [
     <meta name="robots" content={noindex ? 'noindex' : 'max-image-preview:large'} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href={frauncesUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={sansUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={monoUrl} as="font" type="font/woff2" crossorigin />
     <meta name="theme-color" content="#121010" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
