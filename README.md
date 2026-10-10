@@ -40,7 +40,7 @@ so it never needs editing by hand. `npm run check:seo` checks all of this agains
 
 ## The mark
 
-`src/components/Mark.astro` draws the half-stache mark (left half red, right half paper, ink outline).
+`src/components/Mark.astro` draws the half-stache mark (left half red, right half paper, dark outline).
 `public/favicon.svg` and `public/media/mark.svg` are standalone copies of the same path. To replace it with a traced
 version of the real mustache, update the `d` attribute in all three places.
 
