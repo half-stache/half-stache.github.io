@@ -107,7 +107,7 @@ Proposed architecture:
 
 Concrete deliverables, in order:
 
-1. **Brand sheet in this repo** (`public/brand/`): the mark in four variants (red and paper on dark, on light,
+1. **Brand sheet in this repo** (`public/brand/`, DONE 2026-10-10, PR #12, live at `/brand/`): the mark in four variants (red and paper on dark, on light,
    single color, and a favicon version), the half-stache wordmark, the Hutchware wordmark, the color tokens,
    and the type pairing, with a one-page HTML sheet that shows them. These are the "give-away" pieces Sam asked
    for early on, and they let every future thing he makes start from the same files.
