@@ -19,7 +19,9 @@ dark outline on the mark from Sam's review (PR #15), and the GitHub profile READ
 
 ## The site
 
-Astro 7, static, dark only, one page. Hand-written CSS with tokens in `src/styles/tokens.css`. Fonts are
+Astro 7, static, dark only. The home page, one page per project under `/work/<slug>/` (built by
+`src/pages/work/[slug].astro` from the same data file as the home rows), and the brand sheet. Hand-written CSS with
+tokens in `src/styles/tokens.css`. Fonts are
 self-hosted: Fraunces for display, IBM Plex Sans for body, IBM Plex Mono for small labels. JavaScript on the page
 is about 4 KB: the hero's WebGL current and an IntersectionObserver for reveals. No analytics, no cookies, no
 third-party requests until the visitor asks for the Spotify player.
@@ -28,7 +30,9 @@ Content lives in four files and nowhere else:
 
 - `src/data/site.ts`: name, company, email, links, tagline, description, the footer's identity line.
 - `src/data/about.ts`: the About section, three paragraphs in Sam's voice.
-- `src/data/projects.ts`: one object per project with a kind, one paragraph, one link, an icon, and image stems.
+- `src/data/projects.ts`: one object per project with a kind, one paragraph, one link, an icon, and image stems,
+  plus the project page: since, status, platforms, built with, the App Store link, the extra paragraphs, the full
+  screenshot set with alt text, and for Riverstock the figure and the wave animation.
 - `src/data/home.ts`: the Work line, the Music paragraph, and the How I work section.
 
 Images are in `src/assets/work/` as WebP and are referenced by file stem. Astro emits the responsive sizes.
@@ -40,7 +44,15 @@ Discoverability: JSON-LD on the home page (ProfilePage, Person, Organization, We
 SoftwareApplications), per-page titles and descriptions, `rel="me"` on the profile links, font preloads, a
 sitemap, `public/robots.txt`, and `public/llms.txt`. `/llms-full.txt` is generated from the data files by
 `src/pages/llms-full.txt.ts`. `public/llms.txt` is kept by hand, so update it when a project or link changes.
-`npm run check:seo` checks the built site and must pass before a publish.
+`npm run check:seo` checks every built page and must pass before a publish. Each project page has its own share
+image, `public/media/og-<slug>.jpg`, rendered by `scripts/og-images.cjs` after a build; rerun it when a project's
+title, kind, icon, or first screenshots change.
+
+Navigation (decided with Sam on 2026-10-10): the header stays at the top, compacts once the page scrolls, and marks
+the current section on the home page; a floating back-to-top control appears after the first screen and the footer
+carries a Back to top link; the two apps carry Apple's App Store badge (drawn in `AppStoreBadge.astro`, Apple mark
+from simple-icons, CC0) next to the plain site link; each home row links to its project page, and project pages
+link to the previous and next project. `src/scripts/nav.ts` does the header, the scroll spy, and back to top.
 
 `public/privacy.html` is the LavaRise privacy policy and must stay byte-identical at `/privacy.html`; the App
 Store listing points at it.

@@ -47,7 +47,14 @@ a:hover { text-decoration-color: var(--red); }
 .lede { font-size: var(--step-1); line-height: 1.4; max-width: var(--measure); color: var(--ink-2); }
 
 /* Header */
-.site-head { padding-block: var(--space-s); }
+.site-head {
+  position: sticky; top: 0; z-index: 20;
+  padding-block: var(--space-s);
+  background: var(--paper);
+  border-bottom: 1px solid transparent;
+  transition: padding var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+.site-head.is-stuck { padding-block: 0.55rem; border-bottom-color: var(--line); }
 .site-head__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-m); }
 .brand {
   display: inline-flex; align-items: center; gap: 0.6rem; white-space: nowrap;
@@ -57,6 +64,9 @@ a:hover { text-decoration-color: var(--red); }
 .site-nav { display: flex; gap: clamp(0.75rem, 2vw, 2rem); font-family: var(--font-mono); font-size: var(--step--1); }
 .site-nav a { text-decoration: none; padding-block: 0.25rem; }
 .site-nav a:hover { color: var(--red); }
+.site-nav a[aria-current="true"] { text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 1.5px; text-underline-offset: 0.45em; }
+.site-nav a:focus-visible, .brand:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+.section, .project, [id] { scroll-margin-top: 4.25rem; }
 
 /* Hero */
 .hero {
@@ -129,7 +139,8 @@ a:hover { text-decoration-color: var(--red); }
 .project__icon { width: 64px; height: 64px; border-radius: 14px; margin-bottom: var(--space-s); border: 1px solid var(--line); }
 
 /* Riverstock diagram */
-.diagram { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2); padding: var(--space-m); }
+.diagram { min-width: 0; max-width: 100%; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2); padding: var(--space-m); }
+.project__media, .project__text { min-width: 0; }
 .diagram svg { width: 100%; height: auto; }
 
 /* Music */
@@ -213,3 +224,66 @@ a:hover { text-decoration-color: var(--red); }
 .downloads li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-m); padding: 0.6rem 0; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: var(--step--1); }
 .downloads li span { color: var(--ink-2); font-family: var(--font-body); font-size: var(--step-0); }
 @media (max-width: 40em) { .downloads li { grid-template-columns: 1fr; gap: 0.2rem; } .swatches { grid-template-columns: repeat(3, 1fr); } }
+
+
+/* Back to top */
+.to-top {
+  position: fixed; right: var(--gutter); bottom: var(--gutter); z-index: 19;
+  width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--paper-2); color: var(--ink); border: 1px solid var(--line-strong);
+  opacity: 0; transform: translateY(0.5rem); pointer-events: none;
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out), color var(--dur), border-color var(--dur);
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { color: var(--red); border-color: var(--red); }
+.to-top:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .to-top, .site-head { transition: none; } }
+
+/* App Store badge */
+.badge { display: inline-block; line-height: 0; border-radius: 7px; }
+.badge svg { display: block; height: 45px; width: auto; }
+.badge:hover svg rect { stroke: var(--red); }
+.badge:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.project__title a { text-decoration: none; }
+.project__title a:hover { color: var(--red); }
+
+/* Project pages */
+.crumbs { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-2); }
+.crumbs a { color: var(--ink-2); }
+.crumbs span[aria-current] { color: var(--ink); }
+.page-head { margin-top: var(--space-l); }
+.page-title { font-size: var(--step-3); }
+.page-kind { margin-top: 0.6rem; color: var(--ink-2); font-size: var(--step-1); }
+.page-grid { margin-top: var(--space-xl); }
+.facts { display: grid; gap: var(--space-s); align-content: start; font-size: var(--step-0); }
+.facts div { display: grid; gap: 0.2rem; padding-top: var(--space-xs); border-top: 1px solid var(--line); }
+.facts dt { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-2); letter-spacing: 0.04em; text-transform: uppercase; }
+.facts dd { margin: 0; }
+.facts__links { display: grid; gap: var(--space-s); justify-items: start; }
+.page-media { display: grid; gap: var(--space-xl); }
+.shots--phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-m); }
+.shots--phones .phone { margin: 0; }
+.shots--watch { display: grid; justify-items: start; }
+.shots--watch .watch { margin: 0; display: grid; gap: var(--space-xs); }
+.shots--watch img { width: min(100%, 23rem); height: auto; border-radius: 22%; border: 1px solid var(--line); }
+.shots--desktop { display: grid; gap: var(--space-l); }
+.shots--desktop .shot { margin: 0; }
+.figure { margin: 0; display: grid; gap: var(--space-s); max-width: 64rem; }
+.figure img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); }
+.caption { font-size: var(--step--1); color: var(--ink-2); max-width: var(--measure); }
+.wave { display: grid; gap: var(--space-s); }
+.wave__motion img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); }
+.wave__still { display: none; }
+@media (prefers-reduced-motion: reduce) { .wave__motion { display: none; } .wave__still { display: block; } }
+.pager { padding-block: var(--space-xl); }
+.pager__in { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-m); }
+.pager__link { display: grid; gap: 0.3rem; text-decoration: none; }
+.pager__link--next { text-align: right; justify-items: end; }
+.pager__title { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.1; letter-spacing: -0.01em; }
+.pager__link:hover .pager__title { color: var(--red); }
+@media (max-width: 40em) {
+  .shots--phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pager__in { grid-template-columns: 1fr; }
+  .pager__link--next { text-align: left; justify-items: start; }
+}

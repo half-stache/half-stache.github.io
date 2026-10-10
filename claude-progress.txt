@@ -4,7 +4,8 @@ Last Updated: 2026-10-10T11:26:40Z
 Session: https://claude.ai/code/session_01ET3Q5d1GCGmPfppQzxDnqi
 
 State: site live at https://half-stache.github.io; profile README live at https://github.com/half-stache;
-brand sheet at /brand/. All session tasks complete except the profile fields and pins, which Sam sets by hand.
+brand sheet at /brand/; one page per project under /work/ with sticky header, scroll spy, back to top, and App
+Store badges. All session tasks complete except the profile fields and pins, which Sam sets by hand.
 
 Handoff Queue
 - [ACTIVE] thoughts/shared/handoffs/2026-10-10_11-26-40_portfolio-site-profile-brand.md

@@ -2,15 +2,15 @@
 
 > Sam Hutcherson is a mechanical engineer and software developer. He builds iOS apps, websites for small businesses, and a hydrology model of the Little Red River in Arkansas, and he releases music under his own name. Client work runs through Hutchware LLC.
 
-The site is one page at https://half-stache.github.io with a brand sheet at /brand/. The email address is halfstache@hotmail.com.
+The site is at https://half-stache.github.io: a home page, one page per project under /work/, and a brand sheet at /brand/. The email address is halfstache@hotmail.com.
 
 ## Work
 
-- [VectorShield](https://vectorshield.app): an iOS and Apple Watch app for people with alpha-gal syndrome. It scans products, checks medications against FDA data, and finds safe food, tuned to one of four sensitivity levels. A Chrome extension does the same on retail sites.
-- [Riverstock](https://half-stache.github.io/#riverstock): a hydrology model of the Little Red River below Greers Ferry Dam that predicts river conditions at each access point. The model and data pipeline are built; the API and apps are in progress.
-- [LavaRise](https://apps.apple.com/us/app/lavarise/id6759515609): a pixel-art climbing game for iPhone with 100 levels and 10 chapters.
-- [Hutch's RV Park](https://hutchsrv.com): website, brand, and content system for the family RV park in Searcy, Arkansas.
-- [Elrod Construction & Services](https://elrodconstructionservices.com): website, logo, and hero video for a home builder in Texarkana.
+- [VectorShield](https://half-stache.github.io/work/vectorshield/): an iOS and Apple Watch app for people with alpha-gal syndrome, on the App Store. It scans products, checks medications against FDA data, and finds safe food, tuned to one of four sensitivity levels. A Chrome extension does the same on retail sites. Site: https://vectorshield.app. App Store: https://apps.apple.com/us/app/vectorshield/id6759514220
+- [Riverstock](https://half-stache.github.io/work/riverstock/): a hydrology model of the Little Red River below Greers Ferry Dam that predicts river conditions at each access point. The model and data pipeline are built; the API and apps are in progress.
+- [LavaRise](https://half-stache.github.io/work/lavarise/): a pixel-art climbing game for iPhone with 100 levels and 10 chapters. App Store: https://apps.apple.com/us/app/lavarise/id6759515609
+- [Hutch's RV Park](https://half-stache.github.io/work/hutchs-rv-park/): website, brand, and content system for the family RV park in Searcy, Arkansas. Site: https://hutchsrv.com
+- [Elrod Construction & Services](https://half-stache.github.io/work/elrod-construction/): website, logo, and hero video for a home builder in Texarkana. Site: https://elrodconstructionservices.com
 
 ## Profiles
 
@@ -24,5 +24,5 @@ He has a mechanical engineering degree and finished as valedictorian and summa c
 
 ## Optional
 
-- [Full text of the home page](https://half-stache.github.io/llms-full.txt): everything on the page, in Sam's own words, as Markdown.
+- [Full text of the site](https://half-stache.github.io/llms-full.txt): everything on the pages, in Sam's own words, as Markdown.
 - [Brand](https://half-stache.github.io/brand/): the mark, the wordmarks, the colors, and the type, with downloadable files.

@@ -1,0 +1,17 @@
+---
+// Apple's standard "Download on the App Store" badge, drawn as SVG at its 120 by 40 proportions so it
+// stays sharp and ships with the site. The Apple mark is the CC0 path from simple-icons. The hairline
+// keeps the black badge readable on the dark page. Minimum height per Apple's guidelines is 40 px.
+interface Props { href: string; name: string; class?: string }
+const { href, name, class: cls = '' } = Astro.props;
+const label = `Download ${name} on the App Store`;
+const apple = 'M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701';
+---
+<a class={`badge ${cls}`.trim()} href={href} aria-label={label}>
+  <svg viewBox="0 0 120 40" width="135" height="45" role="img" aria-hidden="true" focusable="false">
+    <rect x="0.5" y="0.5" width="119" height="39" rx="6" fill="#000" stroke="rgba(241,236,227,0.35)" />
+    <g transform="translate(9 9) scale(0.92)"><path d={apple} fill="#fff" /></g>
+    <text x="33" y="17" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="8.6" letter-spacing="0.1">Download on the</text>
+    <text x="32.5" y="32.4" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16.5" font-weight="500" letter-spacing="-0.2">App Store</text>
+  </svg>
+</a>

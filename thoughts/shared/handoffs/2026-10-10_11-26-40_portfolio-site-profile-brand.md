@@ -42,6 +42,7 @@ optimize for search and generative engines; go live; finish with a handoff.
 | GitHub profile README at half-stache/half-stache | complete | Sam created the repo; README and media pushed |
 | Profile README media: hero GIF, phone loops, Riverstock wave | complete | PRs #16, #17 hold the generators |
 | Riverstock wave: water temperature by month | complete | Measured means from Riverstock docs/17 |
+| Navigation pass: sticky header with scroll spy, back to top, App Store badges, a page per project, share images, manifest | complete | PR #19, decided with Sam on 2026-10-10 |
 | Profile fields, avatar, pins | blocked on Sam | `docs/github-profile/SETTINGS.md` |
 | samhutcherson.com on the site | not started | Needs DNS at the registrar first |
 
@@ -60,7 +61,8 @@ optimize for search and generative engines; go live; finish with a handoff.
 - `src/components/{Hero,Mark,WorkRow,Music,Footer,RiverDiagram}.astro`, `src/layouts/Base.astro` - the page
 - `src/scripts/hero-canvas.ts` - the WebGL current (30 fps cap, reduced-motion still frame)
 - `src/styles/{tokens,global}.css` - the only place colors, type, and spacing live
-- `src/pages/{index,brand,404}.astro`, `src/pages/llms-full.txt.ts` - pages and the generated llms-full.txt
+- `src/pages/{index,brand,404}.astro`, `src/pages/work/[slug].astro`, `src/pages/llms-full.txt.ts` - pages and the generated llms-full.txt
+- `src/scripts/nav.ts`, `src/components/AppStoreBadge.astro`, `scripts/og-images.cjs` - navigation, the badge, per-project share images
 - `public/brand/*` - mark variants, wordmarks, raster exports, `tokens.css`, `tokens.json`
 - `public/media/og.jpg`, `public/llms.txt`, `public/robots.txt`, `public/privacy.html` (byte-identical LavaRise policy)
 - `scripts/publish.mjs`, `scripts/check-seo.mjs`, `scripts/wordmarks.py`, `scripts/readme-media/*`

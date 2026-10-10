@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Base from '../../layouts/Base.astro';
+import AppStoreBadge from '../../components/AppStoreBadge.astro';
+import RiverDiagram from '../../components/RiverDiagram.astro';
+import { projects } from '../../data/projects';
+import { site } from '../../data/site';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const index = projects.findIndex((p) => p.slug === Astro.params.slug);
+const project = projects[index];
+const prev = projects[(index + projects.length - 1) % projects.length];
+const next = projects[(index + 1) % projects.length];
+const { title, kind, text, more, link, appStore, icon, since, status, platforms, built, shots, figure, wave } = project;
+const plainLink = link && link.url !== appStore ? link : undefined;
+
+const files = import.meta.glob<{ default: ImageMetadata }>('../../assets/work/*.webp', { eager: true });
+const pick = (stem?: string) => (stem ? files[`../../assets/work/${stem}.webp`]?.default : undefined);
+const iconImg = pick(icon);
+const phones = shots.filter((s) => s.kind === 'phone').map((s) => ({ ...s, img: pick(s.stem)! })).filter((s) => s.img);
+const watch = shots.filter((s) => s.kind === 'watch').map((s) => ({ ...s, img: pick(s.stem)! })).filter((s) => s.img);
+const desktops = shots.filter((s) => s.kind === 'desktop').map((s) => ({ ...s, img: pick(s.stem)! })).filter((s) => s.img);
+const figureImg = figure ? pick(figure.stem) : undefined;
+
+// The meta description is the first two sentences of the project's own paragraph.
+const description = text.split(/(?<=\.)\s+/).slice(0, 2).join(' ');
+const siteUrl = String(Astro.site);
+const pageUrl = new URL(`/work/${project.slug}/`, Astro.site).href;
+const ogImage = `/media/og-${project.slug}.jpg`;
+const person = { '@type': 'Person', '@id': `${siteUrl}#sam`, name: site.fullName, url: siteUrl };
+const thing = appStore
+  ? {
+      '@type': 'SoftwareApplication', name: title, url: appStore, description: text, image: new URL(ogImage, Astro.site).href,
+      applicationCategory: project.slug === 'lavarise' ? 'GameApplication' : 'HealthApplication',
+      operatingSystem: platforms.filter((p) => p !== 'Web' && p !== 'Chrome').join(', '),
+      author: { '@id': person['@id'] }, mainEntityOfPage: pageUrl,
+    }
+  : plainLink
+    ? { '@type': 'WebSite', name: title, url: plainLink.url, description: text, creator: { '@id': person['@id'] }, mainEntityOfPage: pageUrl }
+    : { '@type': 'CreativeWork', name: title, url: pageUrl, description: text, creator: { '@id': person['@id'] }, mainEntityOfPage: pageUrl };
+const graph = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: site.name, item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Work', item: `${siteUrl}#work` },
+      { '@type': 'ListItem', position: 3, name: title, item: pageUrl },
+    ],
+  },
+  thing,
+  person,
+];
+---
+<Base title={title} description={description} ogImage={ogImage} ogAlt={`${title}: ${kind}`} graph={graph}>
+  <article class="page">
+    <section class="section section--first">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a class="link" href="/">half-stache</a><span aria-hidden="true"> / </span><a class="link" href="/#work">Work</a><span aria-hidden="true"> / </span><span aria-current="page">{title}</span>
+        </nav>
+        <header class="page-head">
+          {iconImg && <Image class="project__icon" src={iconImg} alt={`The ${title} app icon`} width={96} height={96} loading="eager" />}
+          <h1 class="display page-title">{title}</h1>
+          <p class="page-kind">{kind}</p>
+        </header>
+        <div class="section__grid page-grid">
+          <dl class="facts">
+            <div><dt>Since</dt><dd>{since}</dd></div>
+            <div><dt>Status</dt><dd>{status}</dd></div>
+            <div><dt>Platforms</dt><dd>{platforms.join(', ')}</dd></div>
+            <div><dt>Built with</dt><dd>{built.join(', ')}</dd></div>
+            {(plainLink || appStore) && (
+              <div>
+                <dt>Links</dt>
+                <dd class="facts__links">
+                  {plainLink && <a class="link" href={plainLink.url}>{plainLink.label}</a>}
+                  {appStore && <AppStoreBadge href={appStore} name={title} />}
+                </dd>
+              </div>
+            )}
+          </dl>
+          <div class="prose">
+            <p>{text}</p>
+            {more.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {(wave || phones.length > 0 || watch.length > 0 || desktops.length > 0 || figureImg) && (
+      <section class="section" aria-label={`${title} screens`}>
+        <div class="wrap page-media">
+          {wave && (
+            <div class="wave">
+              <div class="wave__motion">
+                <img src="/media/riverstock-wave.svg" width="800" height="384" alt="A release wave travelling down the Little Red River from Greers Ferry Dam to Ramsey Access, arriving at each access point at the hour the model estimates, with the water temperature at the wave for each month of the year" loading="lazy" />
+              </div>
+              <div class="wave__still"><RiverDiagram /></div>
+              <p class="caption">The release wave, one loop per month. Water temperature is measured at the dam and at Dewey; between them it is a straight line.</p>
+            </div>
+          )}
+          {phones.length > 0 && (
+            <div class="shots shots--phones">
+              {phones.map((s) => (
+                <figure class="phone">
+                  <Image src={s.img} alt={s.alt} widths={[320, 480, 640]} sizes="(min-width: 56em) 24rem, 46vw" loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          )}
+          {watch.length > 0 && (
+            <div class="shots shots--watch">
+              {watch.map((s) => (
+                <figure class="watch">
+                  <Image src={s.img} alt={s.alt} width={368} height={448} loading="lazy" />
+                  <figcaption class="caption">Apple Watch</figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+          {desktops.length > 0 && (
+            <div class="shots shots--desktop">
+              {desktops.map((s) => (
+                <figure class="shot">
+                  <Image src={s.img} alt={s.alt} widths={[720, 1200, 1600]} sizes="(min-width: 76rem) 76rem, 100vw" loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          )}
+          {figure && figureImg && (
+            <figure class="figure">
+              <Image src={figureImg} alt={figure.alt} widths={[800, 1200, 1600]} sizes="(min-width: 76rem) 76rem, 100vw" loading="lazy" />
+              <figcaption class="caption">{figure.caption}</figcaption>
+            </figure>
+          )}
+        </div>
+      </section>
+    )}
+
+    <nav class="section pager" aria-label="Other work">
+      <div class="wrap pager__in">
+        <a class="pager__link" href={`/work/${prev.slug}/`} rel="prev"><span class="eyebrow">Previous</span><span class="pager__title">{prev.title}</span></a>
+        <a class="pager__link pager__link--next" href={`/work/${next.slug}/`} rel="next"><span class="eyebrow">Next</span><span class="pager__title">{next.title}</span></a>
+      </div>
+    </nav>
+  </article>
+</Base>

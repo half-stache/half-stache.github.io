@@ -1,5 +1,5 @@
-// The full text of the home page as Markdown, for AI assistants that read llms.txt.
-// Built from the same data files as the page, so it never says anything the page does not.
+// The full text of the site as Markdown, for AI assistants that read llms.txt.
+// Built from the same data files as the pages, so it never says anything the pages do not.
 import type { APIRoute } from 'astro';
 import { site } from '../data/site';
 import { about } from '../data/about';
@@ -13,7 +13,7 @@ export const GET: APIRoute = ({ site: base }) => {
     '',
     `> ${site.tagline}`,
     '',
-    `This is the text of the home page at ${home}, as Markdown. ${site.identity}`,
+    `This is the text of the site at ${home}, as Markdown. ${site.identity}`,
     '',
     '## About',
     '',
@@ -24,8 +24,12 @@ export const GET: APIRoute = ({ site: base }) => {
     '',
   ];
   for (const p of projects) {
-    lines.push(`### ${p.title}`, '', p.kind, '', p.text, '');
-    if (p.link) lines.push(`[${p.link.label}](${p.link.url})`, '');
+    const page = new URL(`/work/${p.slug}/`, base).href;
+    lines.push(`### ${p.title}`, '', p.kind, '', p.text, '', ...p.more.flatMap((m) => [m, '']));
+    lines.push(`- Since: ${p.since}`, `- Status: ${p.status}`, `- Platforms: ${p.platforms.join(', ')}`, `- Built with: ${p.built.join(', ')}`);
+    if (p.link) lines.push(`- ${p.link.label}: ${p.link.url}`);
+    if (p.appStore && (!p.link || p.link.url !== p.appStore)) lines.push(`- App Store: ${p.appStore}`);
+    lines.push(`- Project page: ${page}`, '');
   }
   lines.push(
     '## Music',

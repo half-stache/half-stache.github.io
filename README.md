@@ -59,3 +59,9 @@ files at the root are build output. Do not edit them by hand; change the source 
 ## LavaRise privacy policy
 
 `public/privacy.html` is served unchanged at `/privacy.html`. Do not move or rename it; the App Store listing links to it.
+
+## Project pages and share images
+
+Each project in `src/data/projects.ts` also builds a page at `/work/<slug>/` from the same object. After a build,
+`NODE_PATH=$(npm root -g) node scripts/og-images.cjs` renders a share image per project into `public/media/`.
+`npm run check:seo` checks every page, including the project pages.
