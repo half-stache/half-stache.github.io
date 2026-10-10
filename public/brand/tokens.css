@@ -5,6 +5,7 @@
   --hs-ink: #f1ece3;
   --hs-ink-2: #aca49a;
   --hs-red: #e8503f;
+  --hs-mark-outline: #15120f;
   --hs-font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --hs-font-body: 'IBM Plex Sans', system-ui, sans-serif;
   --hs-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -15,4 +16,5 @@
   --hs-ink: #15120f;
   --hs-ink-2: #5c5650;
   --hs-red: #c0271c;
+  --hs-mark-outline: #15120f;
 }

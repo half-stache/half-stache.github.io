@@ -1,5 +1,6 @@
 ---
-// The half-stache mark: one mustache, left half red, right half paper, one ink outline.
+// The half-stache mark: one mustache, left half red, right half paper, one dark outline so the
+// white half separates from light backgrounds and from the hero current on dark ones.
 // Swap the path for a traced version of the real thing when Sam sends a photo or logo file.
 interface Props { size?: number; class?: string; label?: string; decorative?: boolean }
 const { size = 32, class: cls = '', label = 'half-stache', decorative = false } = Astro.props;
@@ -24,5 +25,5 @@ const d = 'M100,30 C94,16 78,8 60,12 C38,17 22,36 8,52 C3,58 6,66 13,63 C28,56 4
   </defs>
   <use href={`#s-${uid}`} clip-path={`url(#l-${uid})`} fill="var(--red)" />
   <use href={`#s-${uid}`} clip-path={`url(#r-${uid})`} fill="var(--white)" />
-  <use href={`#s-${uid}`} stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" />
+  <use href={`#s-${uid}`} stroke="var(--mark-outline)" stroke-width="3" stroke-linejoin="round" />
 </svg>
