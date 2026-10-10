@@ -1,6 +1,6 @@
 half-stache.github.io progress
 
-Last Updated: 2026-10-10T11:26:40Z
+Last Updated: 2026-10-10T15:00:06Z
 Session: https://claude.ai/code/session_01ET3Q5d1GCGmPfppQzxDnqi
 
 State: site live at https://half-stache.github.io; profile README live at https://github.com/half-stache;
@@ -8,7 +8,8 @@ brand sheet at /brand/; one page per project under /work/ with sticky header, sc
 Store badges. All session tasks complete except the profile fields and pins, which Sam sets by hand.
 
 Handoff Queue
-- [ACTIVE] thoughts/shared/handoffs/2026-10-10_11-26-40_portfolio-site-profile-brand.md
-  Resume: /resume_handoff thoughts/shared/handoffs/2026-10-10_11-26-40_portfolio-site-profile-brand.md
+- [ACTIVE] thoughts/shared/handoffs/2026-10-10_15-00-06_session-end-navigation-and-project-pages.md
+  Resume: /resume_handoff thoughts/shared/handoffs/2026-10-10_15-00-06_session-end-navigation-and-project-pages.md
+- [superseded] thoughts/shared/handoffs/2026-10-10_11-26-40_portfolio-site-profile-brand.md
 
 Narrative handoff for humans: docs/HANDOFF.md

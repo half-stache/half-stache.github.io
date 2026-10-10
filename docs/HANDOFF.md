@@ -7,7 +7,7 @@ before touching the site.
 
 The site is live at https://half-stache.github.io. `main` holds the source and the built output side by side;
 the last merged pull request is #17 (water temperature on the Riverstock wave). The session ended 2026-10-10;
-the resumable A3 handoff is `thoughts/shared/handoffs/2026-10-10_11-26-40_portfolio-site-profile-brand.md`. A private preview of the exact build is at
+the resumable A3 handoff is `thoughts/shared/handoffs/2026-10-10_15-00-06_session-end-navigation-and-project-pages.md`. A private preview of the exact build is at
 https://claude.ai/artifact/8iYRtHCp9V8kqjS7UaDk9z and is republished after every change.
 
 Publishing is one command plus a commit, described under "Publishing" below. There is no GitHub Actions
