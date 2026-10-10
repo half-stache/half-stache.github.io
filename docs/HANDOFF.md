@@ -115,15 +115,31 @@ Concrete deliverables, in order:
    carries the mark, the same three-sentence bio the site uses, and links to the site, VectorShield, LavaRise,
    Spotify, and YouTube. Set the profile name, bio, location, website, and avatar (the photo or the mark; the
    same choice the site makes). Pin the site repository first.
-3. **Repository hygiene.** Every repository, private ones included, gets a one-line description and topics,
-   and a README that opens with what it is and "made by half-stache". Archive the dead ones (the bookd variants,
-   AICORD, AlphaGalaxy, agsdata, good-deed-simulator) so the account reads as a working shop, not a junk drawer.
-   Decide which, if any, go public: Riverstock's docs and the instrument manager are the cleanest candidates;
-   the app repositories carry keys and metadata and should stay private.
+3. **Repository hygiene, all of it private.** No repository goes public for now; Sam decided this on
+   2026-10-10. Every repository still gets a one-line description, topics, and a README that opens with what
+   it is and "made by half-stache", because that is what Sam sees every day and what any future collaborator
+   sees first. Archive the dead ones (the bookd variants, AICORD, AlphaGalaxy, agsdata, good-deed-simulator)
+   so the account reads as a working shop. The only public repository besides this site is the profile
+   README repository in step 2, which holds one Markdown file and no code.
+
+   When making a repository public is worth considering, later: the work is finished enough that a stranger
+   could use it or clearly labeled as a sketch; the full history is clean of keys, tokens, customer data, and
+   third-party assets (a secret committed once means a rewritten history or a fresh repository, not a
+   deletion); a license is chosen; and there is a reason, such as wanting contributors, open-sourcing a tool
+   on purpose, or showing code to an employer. Identity and client work do not need it. The site and the
+   profile README do that job.
+
 4. **Credit lines.** Add the "site by half-stache" footer link to Hutch's RV Park and Elrod, and "made by
    half-stache" to the VectorShield and LavaRise store copy and READMEs.
-5. **A domain.** `half-stache.github.io` works, but one domain for the hub (halfstache.com or half-stache.com if
-   available) with a matching email address would replace the Hotmail address and tie the identity together.
-   GitHub Pages supports it with a `CNAME` file and no cost beyond the domain.
+5. **A domain.** Sam already owns samhutcherson.com, and the site's own headline is his name, so that becomes
+   the hub's address. On GitHub Pages this is a `CNAME` file in `public/` containing `samhutcherson.com`,
+   plus DNS at the registrar: four A records for the apex pointing at GitHub Pages
+   (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and a CNAME for `www` pointing at
+   `half-stache.github.io`. Then "Enforce HTTPS" in the repository's Pages settings once the certificate
+   issues. `site` in `astro.config.mjs`, the JSON-LD, `robots.txt`, and `llms.txt` all change to the new
+   domain at the same time. halfstache.com is worth buying as a second door (note the spelling: the brand is
+   half-stache, so halfstache.com, not halfstash.com) and set to redirect to samhutcherson.com. A matching
+   mailbox on samhutcherson.com would replace the Hotmail address on the site.
+
 6. **Then go live** with the no-Actions path above, and announce it from the YouTube and Spotify profiles by
    pointing their links at the site.
