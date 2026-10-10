@@ -1,0 +1,18 @@
+/* half-stache brand tokens. Dark is the house setting; the light set is for print and light surfaces. */
+:root {
+  --hs-paper: #121010;
+  --hs-paper-2: #1b1816;
+  --hs-ink: #f1ece3;
+  --hs-ink-2: #aca49a;
+  --hs-red: #e8503f;
+  --hs-font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --hs-font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --hs-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+.hs-light {
+  --hs-paper: #f4efe6;
+  --hs-paper-2: #ebe4d8;
+  --hs-ink: #15120f;
+  --hs-ink-2: #5c5650;
+  --hs-red: #c0271c;
+}
