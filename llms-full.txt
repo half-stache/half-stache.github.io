@@ -2,7 +2,7 @@
 
 > I build apps and websites, model a river in Arkansas, and make music.
 
-This is the text of the home page at https://half-stache.github.io/, as Markdown. half-stache is the personal site of Sam Hutcherson. Client work runs through Hutchware LLC.
+This is the text of the site at https://half-stache.github.io/, as Markdown. half-stache is the personal site of Sam Hutcherson. Client work runs through Hutchware LLC.
 
 ## About
 
@@ -22,7 +22,17 @@ iOS and Apple Watch app, Chrome extension, website
 
 VectorShield is an app for people with alpha-gal syndrome, the tick-borne allergy to mammalian products. It scans products, checks medications against FDA data, and finds safe food, all tuned to one of four sensitivity levels, and a Chrome extension does the same on retail sites. I built it because I wish I’d had it when I was learning I had alpha-gal syndrome.
 
-[Visit vectorshield.app](https://vectorshield.app)
+The app has a food analyzer for products and menu items, a medication checker built on FDA ingredient data for prescription and over-the-counter drugs, four sensitivity levels with dairy tolerance settings and family profiles, and community safety reports that people vote on. It reads heart rate from Apple Watch and other wearables through Apple Health to help spot a reaction, and what it learns about which foods are safe for you stays on the device.
+
+The website carries a research page with an anonymized dataset from the sensitivity quiz and a map of suspected alpha-gal cases, which run highest in Arkansas, Oklahoma, and Missouri.
+
+- Since: 2025
+- Status: On the App Store
+- Platforms: iPhone, Apple Watch, Chrome, Web
+- Built with: Swift and SwiftUI, Next.js, Supabase
+- Visit vectorshield.app: https://vectorshield.app
+- App Store: https://apps.apple.com/us/app/vectorshield/id6759514220
+- Project page: https://half-stache.github.io/work/vectorshield/
 
 ### Riverstock
 
@@ -30,13 +40,34 @@ Hydrology model, in progress
 
 Riverstock is a model of the Little Red River below Greers Ferry Dam. It answers one question: how deep will the river be at your access point, at the hour you plan to be standing in it? The model and data pipeline are built and tested, and the API and apps come next. One finding already matters. The release wave reaches Ramsey Access in a median of twelve hours, not the eight hours anglers repeat.
 
+The reach below the dam has two gauged points, the dam tailwater and Dewey at mile 29.5, and every access people fish from sits between them. The model routes each generation release down the river and gives each access a discharge, an arrival time, and a wadeability class with the discharge printed beside it, because the wadeable threshold is still being measured.
+
+Water temperature is measured at the same two points. Between them the model draws a straight line and says so, and the measured means show why that is only a start: the river warms toward Dewey in summer and runs colder there in winter.
+
+It is a Python model on PostgreSQL with TimescaleDB, fed by the USGS water data API, the Corps of Engineers, and the power administration’s generation schedule. The figure below is from the model’s own documentation: three ways to join the two measured points, why a curve in distance alone is wrong, and how the chosen kernel’s peak compares with the measured peak at Dewey.
+
+- Since: 2026
+- Status: Model and data pipeline built, app in progress
+- Platforms: Server, iPhone, in progress, Raspberry Pi display, in progress
+- Built with: Python, PostgreSQL and TimescaleDB, SwiftUI
+- Project page: https://half-stache.github.io/work/riverstock/
+
 ### LavaRise
 
 iPhone game
 
 LavaRise is a pixel-art climbing game. You slingshot upward to outrun rising lava through 100 levels and 10 chapters. I made it for fun and to learn the full path from pixel art to App Store review.
 
-[Get it on the App Store](https://apps.apple.com/us/app/lavarise/id6759515609)
+You aim with a drag and let go, and a sweet spot on the charge meter gives a stronger launch. A few boosts carry you further in the air. Two gadgets help: a platform creator that drops a temporary platform under you, and a grappling hook that pulls you to a surface. There are 44 achievements, a daily reward, and a shop for upgrades.
+
+It is built in Godot with GDScript. The sprites came out of a pixel-art diffusion model and were fitted into the game one at a time.
+
+- Since: 2025
+- Status: On the App Store
+- Platforms: iPhone
+- Built with: Godot 4, GDScript
+- Get it on the App Store: https://apps.apple.com/us/app/lavarise/id6759515609
+- Project page: https://half-stache.github.io/work/lavarise/
 
 ### Hutch’s RV Park
 
@@ -44,7 +75,14 @@ Website and brand
 
 Hutch’s RV Park is my family’s park in Searcy, Arkansas. I drew the original layout of the park, designed the brand, and built the website my brothers run it with. It runs on Next.js with a Git-backed editor, so they can change deals and events without calling me.
 
-[Visit hutchsrv.com](https://hutchsrv.com)
+The logo and the colors came first, and then the site that carries them. The content lives in Git behind a visual editor, so a deal or an event is a form, not a code change. The map of the park started as my own drawings of the layout.
+
+- Since: 2024
+- Status: Live
+- Platforms: Web
+- Built with: Next.js, Keystatic
+- Visit hutchsrv.com: https://hutchsrv.com
+- Project page: https://half-stache.github.io/work/hutchs-rv-park/
 
 ### Elrod Construction & Services
 
@@ -52,7 +90,14 @@ Website, logo, and video
 
 Elrod Construction & Services builds homes in Texarkana. The owner needed a site, so I designed and built one on Astro, traced the logo from a raster original, and cut a hero video from the company’s own drone footage. Adding a project to the portfolio is as simple as sending a photo.
 
-[Visit elrodconstructionservices.com](https://elrodconstructionservices.com)
+The site runs on Astro and Tailwind and is served by Cloudflare Pages. The logo was a raster file, so I traced it into a clean vector that scales from a favicon to a sign. The hero video is cut from the company’s own drone footage.
+
+- Since: 2026
+- Status: Live
+- Platforms: Web
+- Built with: Astro, Tailwind CSS, Cloudflare Pages
+- Visit elrodconstructionservices.com: https://elrodconstructionservices.com
+- Project page: https://half-stache.github.io/work/elrod-construction/
 
 ## Music
 
