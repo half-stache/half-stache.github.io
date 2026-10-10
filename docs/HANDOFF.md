@@ -80,7 +80,7 @@ Store listing points at it.
 | VectorShield icon | `AGSMonitor` `VectorShield-Web/public/app-icon.png` |
 | LavaRise screens and icon | `half-stache/speedRecurse` `fastlane/screenshots/en-US` and `icon.png` (February 2026 release set; nothing newer exists) |
 | Hutch's RV Park | `half-stache/hutchrv`, built locally with placeholder Keystatic env and captured |
-| Elrod Construction | `half-stache/elrodconstructionservices`, built locally and captured |
+| Elrod Construction | `half-stache/elrodconstructionservices`, built locally and captured. Recaptured 2026-10-10 after the company's 2026 logo was installed there (that repo's PR #2); its GitHub Actions deploy is blocked like this one's, so Sam publishes it with `wrangler pages deploy dist` from his Mac |
 | Riverstock diagram | drawn from `half-stache/Riverstock` `docs/data/access-points.csv` |
 
 The build container cannot reach the App Store, Apple's image servers, Spotify, or YouTube. Everything has to
