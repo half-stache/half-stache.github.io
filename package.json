@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "publish": "node scripts/publish.mjs",
     "check:seo": "node scripts/check-seo.mjs"
   },
   "engines": {
