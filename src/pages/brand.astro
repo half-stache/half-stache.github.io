@@ -1,0 +1,104 @@
+---
+import fs from 'node:fs';
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const read = (f: string) => fs.readFileSync(`public/brand/${f}`, 'utf8');
+const mono = read('mark-mono.svg');
+const wmHalf = read('wordmark-half-stache.svg');
+const wmSam = read('wordmark-sam-hutcherson.svg');
+const wmHutch = read('wordmark-hutchware.svg');
+
+const dark = [['paper', '#121010'], ['paper 2', '#1b1816'], ['ink', '#f1ece3'], ['ink 2', '#aca49a'], ['red', '#e8503f']];
+const light = [['paper', '#f4efe6'], ['paper 2', '#ebe4d8'], ['ink', '#15120f'], ['ink 2', '#5c5650'], ['red', '#c0271c']];
+const files: [string, string][] = [
+  ['mark-on-dark.svg', 'Mark for dark backgrounds'],
+  ['mark-on-light.svg', 'Mark for light backgrounds'],
+  ['mark-mono.svg', 'Mark in one color'],
+  ['favicon.svg', 'Favicon'],
+  ['mark-1024-dark.png', 'Mark on dark, 1024 px'],
+  ['mark-1024-light.png', 'Mark on light, 1024 px'],
+  ['mark-512-transparent.png', 'Mark on transparent, 512 px'],
+  ['avatar-1024.png', 'Avatar, 1024 px'],
+  ['wordmark-half-stache.svg', 'half-stache wordmark'],
+  ['wordmark-sam-hutcherson.svg', 'Sam Hutcherson wordmark'],
+  ['wordmark-hutchware.svg', 'Hutchware wordmark'],
+  ['tokens.css', 'Colors and type as CSS variables'],
+  ['tokens.json', 'Colors, type, and rules as JSON'],
+];
+---
+<Base title="Brand" description="The files behind half-stache: the mark, the wordmarks, the colors, and the type.">
+  <section class="section section--first" aria-labelledby="brand-title">
+    <div class="wrap section__grid">
+      <h1 id="brand-title" class="section__title">Brand</h1>
+      <div class="prose">
+        <p>These are the files behind half-stache. Use them when you are pointing at my work. The mark is red on the left and paper on the right, with one outline, and it is never recolored or flipped.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="mark-title">
+    <div class="wrap section__grid">
+      <h2 id="mark-title" class="section__title">The mark</h2>
+      <div class="brand-grid">
+        <figure class="tile"><img src="/brand/mark-on-dark.svg" alt="The half-stache mark on a dark background" width="200" height="84" /><figcaption class="tile__cap"><a class="link" href="/brand/mark-on-dark.svg" download>mark-on-dark.svg</a></figcaption></figure>
+        <figure class="tile tile--light"><img src="/brand/mark-on-light.svg" alt="The half-stache mark on a light background" width="200" height="84" /><figcaption class="tile__cap"><a class="link" href="/brand/mark-on-light.svg" download>mark-on-light.svg</a></figcaption></figure>
+        <figure class="tile"><div class="tile__svg" set:html={mono} /><figcaption class="tile__cap"><a class="link" href="/brand/mark-mono.svg" download>mark-mono.svg</a></figcaption></figure>
+        <figure class="tile"><img src="/brand/favicon.svg" alt="The favicon" width="64" height="64" style="width: 4rem" /><figcaption class="tile__cap"><a class="link" href="/brand/favicon.svg" download>favicon.svg</a></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="word-title">
+    <div class="wrap section__grid">
+      <h2 id="word-title" class="section__title">The wordmarks</h2>
+      <div>
+        <div class="wordmarks">
+          <div class="wordmark" set:html={wmHalf} />
+          <div class="wordmark" set:html={wmSam} />
+        </div>
+        <p class="prose" style="margin-top: var(--space-l)">half-stache is the person. Hutchware LLC is the company that client work runs through, and it gets a wordmark only. The two never appear side by side, so nobody has to work out which is which.</p>
+        <div class="wordmarks" style="margin-top: var(--space-m)">
+          <div class="wordmark wordmark--red" set:html={wmHutch} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="color-title">
+    <div class="wrap section__grid">
+      <h2 id="color-title" class="section__title">Color</h2>
+      <div>
+        <p class="eyebrow">Dark, the house setting</p>
+        <ul class="swatches">
+          {dark.map(([n, hex]) => <li><span class="swatch" style={`background:${hex}`}></span><span class="swatch__label">{n}<br />{hex}</span></li>)}
+        </ul>
+        <p class="eyebrow" style="margin-top: var(--space-l)">Light, for print and light surfaces</p>
+        <ul class="swatches">
+          {light.map(([n, hex]) => <li><span class="swatch" style={`background:${hex}`}></span><span class="swatch__label">{n}<br />{hex}</span></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="type-title">
+    <div class="wrap section__grid">
+      <h2 id="type-title" class="section__title">Type</h2>
+      <div class="specimens">
+        <p class="specimen-display">Fraunces, at its softest</p>
+        <p class="specimen-body">IBM Plex Sans carries the sentences. It stays out of the way and reads well at small sizes on a phone.</p>
+        <p class="specimen-mono">IBM Plex Mono for file names, captions, and anything that should look typed.</p>
+        <p class="prose">All three are open fonts under the SIL Open Font License: <a class="link" href="https://github.com/undercasetype/Fraunces">Fraunces</a> and <a class="link" href="https://github.com/IBM/plex">IBM Plex</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="files-title">
+    <div class="wrap section__grid">
+      <h2 id="files-title" class="section__title">Files</h2>
+      <ul class="downloads">
+        {files.map(([f, label]) => <li><a class="link" href={`/brand/${f}`} download>{f}</a><span>{label}</span></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>

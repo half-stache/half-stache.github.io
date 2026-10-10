@@ -185,3 +185,29 @@ a:hover { text-decoration-color: var(--red); }
 .js [data-reveal="left"] { transform: translateX(-20px); }
 .js [data-reveal="right"] { transform: translateX(20px); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Brand sheet */
+.section--first { border-top: 0; padding-top: var(--space-xl); }
+.brand-grid { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.tile {
+  margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2);
+  padding: var(--space-l) var(--space-m); display: grid; place-items: center; align-content: center; gap: var(--space-s); min-height: 13rem;
+}
+.tile--light { background: #f4efe6; color: #15120f; border-color: rgba(21, 18, 15, 0.14); }
+.tile img, .tile__svg svg { width: min(100%, 12rem); height: auto; }
+.tile__cap { font-family: var(--font-mono); font-size: var(--step--1); text-align: center; }
+.tile--light .link { text-decoration-color: #c0271c; }
+.wordmarks { display: grid; gap: var(--space-m); }
+.wordmark svg { width: min(100%, 36rem); height: auto; }
+.wordmark--red { color: var(--red); }
+.swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-s); margin-top: var(--space-s); }
+.swatch { display: block; aspect-ratio: 1; border-radius: var(--radius); border: 1px solid var(--line); }
+.swatch__label { display: block; margin-top: 0.5rem; font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-2); line-height: 1.4; }
+.specimens { display: grid; gap: var(--space-m); max-width: var(--measure); }
+.specimen-display { font-family: var(--font-display); font-size: var(--step-4); line-height: 1; letter-spacing: -0.02em; font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1; }
+.specimen-body { font-size: var(--step-1); line-height: 1.5; }
+.specimen-mono { font-family: var(--font-mono); font-size: var(--step-0); color: var(--ink-2); }
+.downloads { display: grid; }
+.downloads li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-m); padding: 0.6rem 0; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: var(--step--1); }
+.downloads li span { color: var(--ink-2); font-family: var(--font-body); font-size: var(--step-0); }
+@media (max-width: 40em) { .downloads li { grid-template-columns: 1fr; gap: 0.2rem; } .swatches { grid-template-columns: repeat(3, 1fr); } }
