@@ -1,0 +1,78 @@
+# Sam Hutcherson
+
+> I build apps and websites, model a river in Arkansas, and make music.
+
+This is the text of the home page at https://half-stache.github.io/, as Markdown. half-stache is the personal site of Sam Hutcherson. Client work runs through Hutchware LLC.
+
+## About
+
+I’m a mechanical engineer by degree and a software developer by trade. I started reading obsessively in second grade and never really stopped, which turned out to be most of the job. In engineering school I wrote stress and strain programs that classmates copied onto their TI-84s in the parking lot, finished as valedictorian and summa cum laude, and won a Startup Junkie healthcare boot camp with a dermatology app idea.
+
+After school I worked as an account manager at my family’s insurance agency and set out to automate myself out of the job. The document filing system I built there now saves each account manager thirty to sixty minutes a day, and I still work on it.
+
+Today I run Hutchware LLC, a one-person studio. I build iOS apps, websites for small businesses, and a hydrology model for the Little Red River, where my family has a house and an RV park. I’ve released music since I was eighteen, first as 2NDSAMUEL and now under my own name.
+
+## Work
+
+Everything here is finished or in daily use.
+
+### VectorShield
+
+iOS and Apple Watch app, Chrome extension, website
+
+VectorShield is an app for people with alpha-gal syndrome, the tick-borne allergy to mammalian products. It scans products, checks medications against FDA data, and finds safe food, all tuned to one of four sensitivity levels, and a Chrome extension does the same on retail sites. I built it because I wish I’d had it when I was learning I had alpha-gal syndrome.
+
+[Visit vectorshield.app](https://vectorshield.app)
+
+### Riverstock
+
+Hydrology model, in progress
+
+Riverstock is a model of the Little Red River below Greers Ferry Dam. It answers one question: how deep will the river be at your access point, at the hour you plan to be standing in it? The model and data pipeline are built and tested, and the API and apps come next. One finding already matters. The release wave reaches Ramsey Access in a median of twelve hours, not the eight hours anglers repeat.
+
+### LavaRise
+
+iPhone game
+
+LavaRise is a pixel-art climbing game. You slingshot upward to outrun rising lava through 100 levels and 10 chapters. I made it for fun and to learn the full path from pixel art to App Store review.
+
+[Get it on the App Store](https://apps.apple.com/us/app/lavarise/id6759515609)
+
+### Hutch’s RV Park
+
+Website and brand
+
+Hutch’s RV Park is my family’s park in Searcy, Arkansas. I drew the original layout of the park, designed the brand, and built the website my brothers run it with. It runs on Next.js with a Git-backed editor, so they can change deals and events without calling me.
+
+[Visit hutchsrv.com](https://hutchsrv.com)
+
+### Elrod Construction & Services
+
+Website, logo, and video
+
+Elrod Construction & Services builds homes in Texarkana. The owner needed a site, so I designed and built one on Astro, traced the logo from a raster original, and cut a hero video from the company’s own drone footage. Adding a project to the portfolio is as simple as sending a photo.
+
+[Visit elrodconstructionservices.com](https://elrodconstructionservices.com)
+
+## Music
+
+I’ve released music since I was eighteen, first as 2NDSAMUEL and now as Sam Hutcherson. Lately I’ve been making beats with hard drums.
+
+[Listen on Spotify](https://open.spotify.com/artist/2EEOIWtPu49X7MN430bNVI) or [watch on YouTube](https://www.youtube.com/@sam-hutch).
+
+## How I work
+
+> Speak, for your servant hears. (1 Samuel 3:10)
+
+Listening comes first. I try to know the heart of the customer and then apply technical wisdom to it, and that is the whole method.
+
+Client work runs through Hutchware LLC. If you have a project in mind, write to halfstache@hotmail.com.
+
+## Contact
+
+- Email: halfstache@hotmail.com
+- GitHub: https://github.com/half-stache
+- Spotify: https://open.spotify.com/artist/2EEOIWtPu49X7MN430bNVI
+- YouTube: https://www.youtube.com/@sam-hutch
+
+The brand files are at https://half-stache.github.io/brand/ and the short version of this file is at https://half-stache.github.io/llms.txt.
