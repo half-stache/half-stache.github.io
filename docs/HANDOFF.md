@@ -19,19 +19,23 @@ self-hosted: Fraunces for display, IBM Plex Sans for body, IBM Plex Mono for sma
 is about 4 KB: the hero's WebGL current and an IntersectionObserver for reveals. No analytics, no cookies, no
 third-party requests until the visitor asks for the Spotify player.
 
-Content lives in three files and nowhere else:
+Content lives in four files and nowhere else:
 
-- `src/data/site.ts`: name, company, email, links, tagline, description.
+- `src/data/site.ts`: name, company, email, links, tagline, description, the footer's identity line.
 - `src/data/about.ts`: the About section, three paragraphs in Sam's voice.
 - `src/data/projects.ts`: one object per project with a kind, one paragraph, one link, an icon, and image stems.
+- `src/data/home.ts`: the Work line, the Music paragraph, and the How I work section.
 
 Images are in `src/assets/work/` as WebP and are referenced by file stem. Astro emits the responsive sizes.
 Sam's portrait is `src/assets/sam.webp` (the original selfie was mirrored and has been flipped so the hat reads
 correctly and the mustache is red on the left, white on the right, matching the mark). The share image is
 `public/media/og.jpg`.
 
-Discoverability: JSON-LD on the home page (Person, WebSite, two SoftwareApplications), a natural meta
-description, a sitemap, `public/robots.txt`, and `public/llms.txt`. Keep these in step with the data files.
+Discoverability: JSON-LD on the home page (ProfilePage, Person, Organization, WebSite, two
+SoftwareApplications), per-page titles and descriptions, `rel="me"` on the profile links, font preloads, a
+sitemap, `public/robots.txt`, and `public/llms.txt`. `/llms-full.txt` is generated from the data files by
+`src/pages/llms-full.txt.ts`. `public/llms.txt` is kept by hand, so update it when a project or link changes.
+`npm run check:seo` checks the built site and must pass before a publish.
 
 `public/privacy.html` is the LavaRise privacy policy and must stay byte-identical at `/privacy.html`; the App
 Store listing points at it.

@@ -1,7 +1,6 @@
 ---
 import fs from 'node:fs';
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
 
 const read = (f: string) => fs.readFileSync(`public/brand/${f}`, 'utf8');
 const mono = read('mark-mono.svg');
