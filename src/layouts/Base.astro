@@ -11,38 +11,75 @@ import '../styles/global.css';
 import Mark from '../components/Mark.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
+// The three font files that paint above the fold, imported as URLs so the preload hints carry the same
+// hashed names the stylesheet uses. Vite emits each file once.
+import frauncesUrl from '@fontsource-variable/fraunces/files/fraunces-latin-full-normal.woff2?url';
+import sansUrl from '@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url';
+import monoUrl from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
 
-interface Props { title?: string; description?: string; ogImage?: string; jsonLd?: boolean }
-const { title, description = site.description, ogImage = '/media/og.jpg', jsonLd = false } = Astro.props;
+interface Props { title?: string; description?: string; ogImage?: string; jsonLd?: boolean; noindex?: boolean }
+const { title, description = site.description, ogImage = '/media/og.jpg', jsonLd = false, noindex = false } = Astro.props;
+const siteUrl = String(Astro.site);
+const ids = { person: `${siteUrl}#sam`, company: `${siteUrl}#hutchware`, website: `${siteUrl}#website`, page: `${siteUrl}#profile` };
+// Structured data for the home page: the person, the company his client work runs through, the site,
+// the page itself as a profile page, and the two shipped apps. Facts come from the data files.
 const ld = jsonLd
   ? {
       '@context': 'https://schema.org',
       '@graph': [
         {
+          '@type': 'ProfilePage',
+          '@id': ids.page,
+          url: siteUrl,
+          name: `${site.fullName} · ${site.name}`,
+          description,
+          inLanguage: 'en',
+          isPartOf: { '@id': ids.website },
+          mainEntity: { '@id': ids.person },
+        },
+        {
           '@type': 'Person',
-          '@id': `${Astro.site}#sam`,
+          '@id': ids.person,
           name: site.fullName,
-          alternateName: 'half-stache',
-          url: String(Astro.site),
+          alternateName: site.name,
+          description,
+          url: siteUrl,
+          mainEntityOfPage: { '@id': ids.page },
           email: site.email,
           image: new URL('/media/sam.jpg', Astro.site).href,
           jobTitle: 'Software developer and mechanical engineer',
-          worksFor: { '@type': 'Organization', name: site.company },
+          worksFor: { '@id': ids.company },
           sameAs: [site.github, site.spotify, site.youtube].filter(Boolean),
           knowsAbout: ['iOS development', 'web development', 'hydrology modeling', 'music production', 'mechanical engineering'],
         },
-        { '@type': 'WebSite', url: String(Astro.site), name: 'half-stache', description, author: { '@id': `${Astro.site}#sam` } },
+        {
+          '@type': 'Organization',
+          '@id': ids.company,
+          name: site.company,
+          founder: { '@id': ids.person },
+          email: site.email,
+        },
+        {
+          '@type': 'WebSite',
+          '@id': ids.website,
+          url: siteUrl,
+          name: site.name,
+          description,
+          inLanguage: 'en',
+          author: { '@id': ids.person },
+          publisher: { '@id': ids.person },
+        },
         {
           '@type': 'SoftwareApplication', name: 'VectorShield', url: 'https://vectorshield.app',
           applicationCategory: 'HealthApplication', operatingSystem: 'iOS, watchOS',
           description: 'Alpha-gal syndrome safety app: scan products, check medications, and find safe food, tuned to your sensitivity level.',
-          author: { '@id': `${Astro.site}#sam` },
+          author: { '@id': ids.person },
         },
         {
           '@type': 'SoftwareApplication', name: 'LavaRise', url: 'https://apps.apple.com/us/app/lavarise/id6759515609',
           applicationCategory: 'GameApplication', operatingSystem: 'iOS',
           description: 'A pixel-art climbing game for iPhone with 100 levels across 10 chapters.',
-          author: { '@id': `${Astro.site}#sam` },
+          author: { '@id': ids.person },
         },
       ],
     }
@@ -64,8 +101,12 @@ const nav: [string, string][] = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex' : 'max-image-preview:large'} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href={frauncesUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={sansUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={monoUrl} as="font" type="font/woff2" crossorigin />
     <meta name="theme-color" content="#121010" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
@@ -73,6 +114,9 @@ const nav: [string, string][] = [
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.fullName} at the river, beside the half-stache mark, his name, and the line: ${site.tagline}`} />
     <meta name="twitter:card" content="summary_large_image" />
     {ld && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
     <script is:inline>

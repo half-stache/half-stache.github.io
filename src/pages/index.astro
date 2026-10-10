@@ -6,8 +6,12 @@ import Music from '../components/Music.astro';
 import { projects } from '../data/projects';
 import { about } from '../data/about';
 import { site } from '../data/site';
+import { work, method } from '../data/home';
+
+// The contact sentence is plain text in the data file; here the address becomes a link.
+const contact = method.contact.replace(site.email, `<a class="link" href="mailto:${site.email}">${site.email}</a>`);
 ---
-<Base jsonLd>
+<Base title={site.fullName} jsonLd>
   <Hero />
 
   <section id="about" class="section" aria-labelledby="about-title">
@@ -23,7 +27,7 @@ import { site } from '../data/site';
     <div class="wrap">
       <div class="section__grid">
         <h2 id="work-title" class="section__title" data-reveal>Work</h2>
-        <p class="prose" data-reveal>Everything here is finished or in daily use.</p>
+        <p class="prose" data-reveal>{work.intro}</p>
       </div>
       <div class="projects">
         {projects.map((p, i) => <WorkRow project={p} index={i} />)}
@@ -40,14 +44,14 @@ import { site } from '../data/site';
 
   <section id="listening" class="section" aria-labelledby="listen-title">
     <div class="wrap section__grid">
-      <h2 id="listen-title" class="section__title" data-reveal>How I work</h2>
+      <h2 id="listen-title" class="section__title" data-reveal>{method.title}</h2>
       <div class="prose" data-reveal>
         <blockquote class="verse">
-          <p>Speak, for your servant hears.</p>
-          <cite>1 Samuel 3:10</cite>
+          <p>{method.verse}</p>
+          <cite>{method.cite}</cite>
         </blockquote>
-        <p>Listening comes first. I try to know the heart of the customer and then apply technical wisdom to it, and that is the whole method.</p>
-        <p>Client work runs through {site.company}. If you have a project in mind, write to <a class="link" href={`mailto:${site.email}`}>{site.email}</a>.</p>
+        <p>{method.text}</p>
+        <p set:html={contact} />
       </div>
     </div>
   </section>
@@ -57,7 +61,7 @@ import { site } from '../data/site';
       <h2 id="contact-title" class="section__title" data-reveal>Contact</h2>
       <div class="prose" data-reveal>
         <p><a class="contact__email" href={`mailto:${site.email}`}>{site.email}</a></p>
-        <p>I’m also on <a class="link" href={site.github}>GitHub</a> and <a class="link" href={site.spotify}>Spotify</a>{site.youtube && <> and <a class="link" href={site.youtube}>YouTube</a></>}.</p>
+        <p>I’m also on <a class="link" rel="me" href={site.github}>GitHub</a> and <a class="link" rel="me" href={site.spotify}>Spotify</a>{site.youtube && <> and <a class="link" rel="me" href={site.youtube}>YouTube</a></>}.</p>
       </div>
     </div>
   </section>

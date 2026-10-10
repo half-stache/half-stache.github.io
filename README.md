@@ -12,6 +12,7 @@ npm run dev      # http://localhost:4321
 npm run build    # static output in dist/
 npm run preview  # serve dist/ locally
 npm run check    # type-check .astro and .ts files
+npm run check:seo  # after a build: headings, alt text, structured data, llms files
 ```
 
 Requires Node 22 (see `.nvmrc`).
@@ -22,13 +23,20 @@ Projects live in `src/data/projects.ts`, one object each: title, kind, status, a
 up to three short facts for the "more" panel, and image stems. Screenshots go in `src/assets/work/` as WebP
 (desktop about 1600 px wide, phone about 800 px) and are referenced by file stem.
 
-The "short version" lines live in `src/data/evidence.ts`.
+The Work line, the Music paragraph, and the How I work section live in `src/data/home.ts`.
 
 House rules for copy: no em dashes, no bragging, specific numbers, honest status. Nothing unfinished goes on the site.
 
 ## Site-wide facts
 
 Name, company, email, and the site description live in `src/data/site.ts`.
+
+## For search engines and AI assistants
+
+The home page carries JSON-LD (a ProfilePage whose main entity is the Person, the company, the site, and the
+two apps), the profile links carry `rel="me"`, and `public/llms.txt` is the short summary. `/llms-full.txt` is
+the whole home page as Markdown, generated at build time by `src/pages/llms-full.txt.ts` from the data files,
+so it never needs editing by hand. `npm run check:seo` checks all of this against `dist/`.
 
 ## The mark
 

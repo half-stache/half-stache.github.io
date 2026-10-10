@@ -6,11 +6,12 @@ import { site } from '../data/site';
   <div class="wrap site-foot__in">
     <p class="site-foot__brand">
       <Mark size={22} decorative />
-      <span>half-stache is the personal site of {site.fullName}. Client work runs through {site.company}.</span>
+      <span>{site.identity}</span>
     </p>
     <nav aria-label="Footer">
-      <a href={site.github}>GitHub</a>
-      <a href={site.spotify}>Spotify</a>
+      <a rel="me" href={site.github}>GitHub</a>
+      <a rel="me" href={site.spotify}>Spotify</a>
+      {site.youtube && <a rel="me" href={site.youtube}>YouTube</a>}
       <a href="/brand/">Brand</a>
       <a href="/privacy.html">LavaRise privacy policy</a>
     </nav>

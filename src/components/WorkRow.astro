@@ -34,7 +34,7 @@ const iconImg = pick(icon);
   </div>
   <div class="project__text" data-reveal>
     <div>
-      {iconImg && <Image class="project__icon" src={iconImg} alt="" width={96} height={96} loading="lazy" />}
+      {iconImg && <Image class="project__icon" src={iconImg} alt={`The ${title} app icon`} width={96} height={96} loading="lazy" />}
       <h3 class="project__title">{title}</h3>
       <p class="project__kind">{kind}</p>
     </div>

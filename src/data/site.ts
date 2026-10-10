@@ -1,9 +1,13 @@
 // Single place for site-wide facts. Change here, and every page follows.
+const name = 'half-stache';
+const fullName = 'Sam Hutcherson';
+const company = 'Hutchware LLC';
+
 export const site = {
-  name: 'half-stache',
+  name,
   person: 'Sam',
-  fullName: 'Sam Hutcherson',
-  company: 'Hutchware LLC',
+  fullName,
+  company,
   email: 'halfstache@hotmail.com',
   github: 'https://github.com/half-stache',
   spotify: 'https://open.spotify.com/artist/2EEOIWtPu49X7MN430bNVI',
@@ -12,4 +16,6 @@ export const site = {
   tagline: 'I build apps and websites, model a river in Arkansas, and make music.',
   description:
     'Sam Hutcherson is a mechanical engineer and software developer. He builds iOS apps like VectorShield and LavaRise, websites for small businesses, and Riverstock, a hydrology model of the Little Red River. He releases music under his own name.',
+  // The one-line identity statement in the footer.
+  identity: `${name} is the personal site of ${fullName}. Client work runs through ${company}.`,
 };

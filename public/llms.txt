@@ -2,20 +2,27 @@
 
 > Sam Hutcherson is a mechanical engineer and software developer. He builds iOS apps, websites for small businesses, and a hydrology model of the Little Red River in Arkansas, and he releases music under his own name. Client work runs through Hutchware LLC.
 
-- Site: https://half-stache.github.io
-- Email: halfstache@hotmail.com
-- GitHub: https://github.com/half-stache
-- Spotify: https://open.spotify.com/artist/2EEOIWtPu49X7MN430bNVI
-- YouTube: https://www.youtube.com/@sam-hutch
+The site is one page at https://half-stache.github.io with a brand sheet at /brand/. The email address is halfstache@hotmail.com.
 
 ## Work
 
-- VectorShield (https://vectorshield.app): an iOS and Apple Watch app for people with alpha-gal syndrome. It scans products, checks medications against FDA data, and finds safe food, tuned to one of four sensitivity levels. A Chrome extension does the same on retail sites.
-- Riverstock: a hydrology model of the Little Red River below Greers Ferry Dam that predicts river conditions at each access point. Model and data pipeline built; API and apps in progress.
-- LavaRise (https://apps.apple.com/us/app/lavarise/id6759515609): a pixel-art climbing game for iPhone with 100 levels and 10 chapters.
-- Hutch's RV Park (https://hutchsrv.com): website, brand, and content system for the family RV park in Searcy, Arkansas.
-- Elrod Construction & Services (https://elrodconstructionservices.com): website, logo, and hero video for a home builder in Texarkana.
+- [VectorShield](https://vectorshield.app): an iOS and Apple Watch app for people with alpha-gal syndrome. It scans products, checks medications against FDA data, and finds safe food, tuned to one of four sensitivity levels. A Chrome extension does the same on retail sites.
+- [Riverstock](https://half-stache.github.io/#riverstock): a hydrology model of the Little Red River below Greers Ferry Dam that predicts river conditions at each access point. The model and data pipeline are built; the API and apps are in progress.
+- [LavaRise](https://apps.apple.com/us/app/lavarise/id6759515609): a pixel-art climbing game for iPhone with 100 levels and 10 chapters.
+- [Hutch's RV Park](https://hutchsrv.com): website, brand, and content system for the family RV park in Searcy, Arkansas.
+- [Elrod Construction & Services](https://elrodconstructionservices.com): website, logo, and hero video for a home builder in Texarkana.
+
+## Profiles
+
+- [GitHub](https://github.com/half-stache)
+- [Spotify](https://open.spotify.com/artist/2EEOIWtPu49X7MN430bNVI)
+- [YouTube](https://www.youtube.com/@sam-hutch)
 
 ## Background
 
-Mechanical engineering degree, valedictorian and summa cum laude. Winner of a Startup Junkie healthcare boot camp. Former account manager at a family insurance agency, where he built document filing automation that saves each account manager thirty to sixty minutes a day.
+He has a mechanical engineering degree and finished as valedictorian and summa cum laude. He won a Startup Junkie healthcare boot camp. He was an account manager at his family's insurance agency, where he built document filing automation that saves each account manager thirty to sixty minutes a day.
+
+## Optional
+
+- [Full text of the home page](https://half-stache.github.io/llms-full.txt): everything on the page, in Sam's own words, as Markdown.
+- [Brand](https://half-stache.github.io/brand/): the mark, the wordmarks, the colors, and the type, with downloadable files.

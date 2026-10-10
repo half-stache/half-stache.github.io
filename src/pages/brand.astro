@@ -1,7 +1,6 @@
 ---
 import fs from 'node:fs';
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
 
 const read = (f: string) => fs.readFileSync(`public/brand/${f}`, 'utf8');
 const mono = read('mark-mono.svg');
@@ -27,7 +26,7 @@ const files: [string, string][] = [
   ['tokens.json', 'Colors, type, and rules as JSON'],
 ];
 ---
-<Base title="Brand" description="The files behind half-stache: the mark, the wordmarks, the colors, and the type.">
+<Base title="Brand" description="These are the files behind half-stache: the mark, the wordmarks, the colors, and the type, free to download.">
   <section class="section section--first" aria-labelledby="brand-title">
     <div class="wrap section__grid">
       <h1 id="brand-title" class="section__title">Brand</h1>
