@@ -1,16 +1,20 @@
 # Handoff: half-stache.github.io
 
-Written 2026-10-10 at the end of the first build session. Read this before touching the site.
+Written 2026-10-10 at the end of the first build session and updated the same day after go-live. Read this
+before touching the site.
 
 ## Where things stand
 
-The site is finished enough to publish and is not yet public. `main` holds the current build (PR #9 merged). A
-private preview of the exact build is at https://claude.ai/artifact/8iYRtHCp9V8kqjS7UaDk9z and is republished
-after every change.
+The site is live at https://half-stache.github.io. `main` holds the source and the built output side by side;
+the last merged pull request is #14 (SEO and AI-search work). A private preview of the exact build is at
+https://claude.ai/artifact/8iYRtHCp9V8kqjS7UaDk9z and is republished after every change.
 
-What is live today at https://half-stache.github.io is still the old LavaRise privacy policy at the root, served
-by GitHub's legacy Pages build from the repository root. `index.html` and `privacy.html` at the root exist only
-to keep that working until the switch below.
+Publishing is one command plus a commit, described under "Publishing" below. There is no GitHub Actions
+workflow in the repository and none is needed.
+
+Done so far: the one-page site, the brand sheet at `/brand/` (PR #12), the SEO and AI-search pass (PR #14), and
+the GitHub profile README, which is written but not yet published because the profile repository does not
+exist (see "GitHub profile" below).
 
 ## The site
 
@@ -68,18 +72,32 @@ Store listing points at it.
 The build container cannot reach the App Store, Apple's image servers, Spotify, or YouTube. Everything has to
 come from a repository or from Sam.
 
-## Going live
+## Publishing
 
 GitHub Actions is blocked at the account level (every run dies in seconds with no log; billing or an Actions
-policy). Sam does not want to resolve that. The path that needs no Actions and no billing:
+policy). Sam does not want to resolve that, so the site is served by GitHub's free legacy "pages build and
+deployment" job from the root of `main`, with an empty `.nojekyll` so `_astro/` is served untouched.
 
-1. Build (`npm run build`), copy the contents of `dist/` to the repository root, and add an empty `.nojekyll`
-   file so the legacy Pages build serves `_astro/` untouched.
-2. Delete `.github/workflows/deploy.yml`.
-3. Push to `main`. The free "pages build and deployment" job publishes the root.
-4. Confirm `/` and `/privacy.html` and the sitemap resolve.
+To publish a change, from a clean `main`:
 
-A small script to do step 1 belongs in `package.json` as `npm run publish` so each change is one command.
+```
+npm run check:seo      # builds and checks the output; must pass
+npm run publish        # builds and copies dist/ to the repository root
+git add -A && git commit -m "Publish" && git push origin main
+```
+
+The Pages job runs within a minute. Confirm `/`, `/brand/`, `/privacy.html`, and `/sitemap-index.xml` resolve.
+Source changes go through a branch and a pull request as usual; the "Publish" commit on `main` is the only
+commit that touches the built files at the root (`index.html`, `404.html`, `_astro/`, `brand/`, `media/`,
+`llms.txt`, `llms-full.txt`, `robots.txt`, the sitemaps, `favicon.svg`, `privacy.html`).
+
+## GitHub profile
+
+The profile README and the settings to apply are in `docs/github-profile/README.md` and
+`docs/github-profile/SETTINGS.md`. The GitHub integration used here cannot create repositories (403), so Sam
+creates the public repository `half-stache/half-stache` by hand (README only, no code), after which the README
+is pushed there as `README.md` and the profile fields are set per SETTINGS.md. Until then the profile shows
+nothing.
 
 ## Open items
 
@@ -106,8 +124,7 @@ Proposed architecture:
   Riverstock has its own "water clock" design language in its docs. Cohesion comes from a shared credit line
   ("made by half-stache" linking here), the same typographic voice in their READMEs and store copy, and the same
   honest tone, not from shared colors.
-- **Client sites belong to the clients.** The only trace of half-stache is an optional "site by half-stache"
-  footer credit, which is also how the next client finds him.
+- **Client sites belong to the clients.** No credit line on them; this site claims the work.
 
 Concrete deliverables, in order:
 
@@ -133,8 +150,9 @@ Concrete deliverables, in order:
    on purpose, or showing code to an employer. Identity and client work do not need it. The site and the
    profile README do that job.
 
-4. **Credit lines.** Add the "site by half-stache" footer link to Hutch's RV Park and Elrod, and "made by
-   half-stache" to the VectorShield and LavaRise store copy and READMEs.
+4. **No credit lines on client sites.** Sam decided this on 2026-10-10: the client sites stay the clients'
+   alone, and the work is claimed on this site only. "Made by half-stache" in the VectorShield and LavaRise
+   store copy and READMEs is still fine, since those are his own products.
 5. **A domain.** Sam already owns samhutcherson.com, and the site's own headline is his name, so that becomes
    the hub's address. On GitHub Pages this is a `CNAME` file in `public/` containing `samhutcherson.com`,
    plus DNS at the registrar: four A records for the apex pointing at GitHub Pages
@@ -145,5 +163,6 @@ Concrete deliverables, in order:
    half-stache, so halfstache.com, not halfstash.com) and set to redirect to samhutcherson.com. A matching
    mailbox on samhutcherson.com would replace the Hotmail address on the site.
 
-6. **Then go live** with the no-Actions path above, and announce it from the YouTube and Spotify profiles by
-   pointing their links at the site.
+6. **Point the other profiles here.** The site is live; set the YouTube and Spotify profile links, and the App
+   Store developer page where it allows one, to the site's address (samhutcherson.com once the domain is
+   set up, https://half-stache.github.io until then).
