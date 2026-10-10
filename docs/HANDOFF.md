@@ -101,7 +101,10 @@ profile repository and push. The profile fields, avatar, and the pin for this re
 
 The README carries four animated pieces, stored in that repository's `media/` folder and linked by raw URL:
 the hero current with the mark as a looping GIF, VectorShield and LavaRise phone loops built from the same
-screenshot sets the site uses, and the Riverstock release wave as an animated SVG timed by the model's hours.
+screenshot sets the site uses, and the Riverstock release wave as an animated SVG timed by the model's hours, one loop
+per month, with the water temperature at the wave: measured monthly means at the two USGS sensors (dam tailwater,
+Dewey) from Riverstock docs/17, a straight line between them, labelled as such. When a piece changes, bump the `?v=`
+query on its URL in the README so GitHub's image cache refreshes.
 `scripts/readme-media/` here regenerates all four (see its README); the SVG and the phone loops reproduce byte
 for byte, the hero GIF depends on the capture. Keep each GIF under about 3 MB for GitHub's image proxy.
 

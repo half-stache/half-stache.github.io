@@ -17,7 +17,7 @@ I'm a mechanical engineer by degree and a software developer by trade. I started
   <img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/lavarise.gif" width="49%" alt="LavaRise on an iPhone, cycling through a climb above rising lava, the grappling hook, and the chapter select screen">
 </p>
 
-<img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/riverstock.svg" width="100%" alt="A release wave travelling down the Little Red River from Greers Ferry Dam to Ramsey Access, lighting up each access point at the hour the Riverstock model estimates it arrives">
+<img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/riverstock.svg?v=2" width="100%" alt="A release wave travelling down the Little Red River from Greers Ferry Dam to Ramsey Access, lighting up each access point at the hour the Riverstock model estimates it arrives, with the water temperature at the wave for each month of the year: measured at the dam sensor and at Dewey, a straight line between them">
 
 ## Elsewhere
 
