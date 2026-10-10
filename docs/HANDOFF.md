@@ -12,9 +12,9 @@ https://claude.ai/artifact/8iYRtHCp9V8kqjS7UaDk9z and is republished after every
 Publishing is one command plus a commit, described under "Publishing" below. There is no GitHub Actions
 workflow in the repository and none is needed.
 
-Done so far: the one-page site, the brand sheet at `/brand/` (PR #12), the SEO and AI-search pass (PR #14), and
-the GitHub profile README, which is written but not yet published because the profile repository does not
-exist (see "GitHub profile" below).
+Done so far: the one-page site, the brand sheet at `/brand/` (PR #12), the SEO and AI-search pass (PR #14), the
+dark outline on the mark from Sam's review (PR #15), and the GitHub profile README, published to
+`half-stache/half-stache` (see "GitHub profile" below).
 
 ## The site
 
@@ -93,11 +93,11 @@ commit that touches the built files at the root (`index.html`, `404.html`, `_ast
 
 ## GitHub profile
 
-The profile README and the settings to apply are in `docs/github-profile/README.md` and
-`docs/github-profile/SETTINGS.md`. The GitHub integration used here cannot create repositories (403), so Sam
-creates the public repository `half-stache/half-stache` by hand (README only, no code), after which the README
-is pushed there as `README.md` and the profile fields are set per SETTINGS.md. Until then the profile shows
-nothing.
+The public repository `half-stache/half-stache` exists (Sam created it by hand on 2026-10-10; a cloud session
+cannot create repositories) and its `README.md` is the profile README, pushed from
+`docs/github-profile/README.md`. That file in this repo is the source: edit it here, then copy it to the
+profile repository and push. The profile fields, avatar, and the pin for this repository are set by hand per
+`docs/github-profile/SETTINGS.md`.
 
 ## Open items
 
@@ -132,10 +132,9 @@ Concrete deliverables, in order:
    single color, and a favicon version), the half-stache wordmark, the Hutchware wordmark, the color tokens,
    and the type pairing, with a one-page HTML sheet that shows them. These are the "give-away" pieces Sam asked
    for early on, and they let every future thing he makes start from the same files.
-2. **GitHub profile as the hub.** Create the public repository `half-stache/half-stache` with a README that
-   carries the mark, the same three-sentence bio the site uses, and links to the site, VectorShield, LavaRise,
-   Spotify, and YouTube. Set the profile name, bio, location, website, and avatar (the photo or the mark; the
-   same choice the site makes). Pin the site repository first.
+2. **GitHub profile as the hub** (README DONE 2026-10-10; profile fields and pins are Sam's to set per
+   `docs/github-profile/SETTINGS.md`). The public repository `half-stache/half-stache` carries the mark, the
+   bio in Sam's voice, and links to the site, VectorShield, LavaRise, Spotify, and YouTube.
 3. **Repository hygiene, all of it private.** No repository goes public for now; Sam decided this on
    2026-10-10. Every repository still gets a one-line description, topics, and a README that opens with what
    it is and "made by half-stache", because that is what Sam sees every day and what any future collaborator
