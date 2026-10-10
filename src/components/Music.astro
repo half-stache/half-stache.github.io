@@ -5,7 +5,7 @@ const embed = `https://open.spotify.com/embed/artist/${site.spotifyId}?utm_sourc
 <div class="music">
   <div class="music__text" data-reveal>
     <p>I’ve released music since I was eighteen, first as 2NDSAMUEL and now as {site.fullName}. Lately I’ve been making beats with hard drums.</p>
-    <p><a class="link" href={site.spotify}>Listen on Spotify</a>{site.youtube && <> or <a class="link" href={site.youtube}>watch on YouTube</a></>}.</p>
+    <p><a class="link" rel="me" href={site.spotify}>Listen on Spotify</a>{site.youtube && <> or <a class="link" rel="me" href={site.youtube}>watch on YouTube</a></>}.</p>
   </div>
   <div class="music__embed" data-reveal data-embed={embed}>
     <button class="music__cta" type="button" data-load-embed>Load the Spotify player</button>

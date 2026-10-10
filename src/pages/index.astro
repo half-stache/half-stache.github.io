@@ -57,7 +57,7 @@ import { site } from '../data/site';
       <h2 id="contact-title" class="section__title" data-reveal>Contact</h2>
       <div class="prose" data-reveal>
         <p><a class="contact__email" href={`mailto:${site.email}`}>{site.email}</a></p>
-        <p>I’m also on <a class="link" href={site.github}>GitHub</a> and <a class="link" href={site.spotify}>Spotify</a>{site.youtube && <> and <a class="link" href={site.youtube}>YouTube</a></>}.</p>
+        <p>I’m also on <a class="link" rel="me" href={site.github}>GitHub</a> and <a class="link" rel="me" href={site.spotify}>Spotify</a>{site.youtube && <> and <a class="link" rel="me" href={site.youtube}>YouTube</a></>}.</p>
       </div>
     </div>
   </section>
