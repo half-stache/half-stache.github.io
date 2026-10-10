@@ -17,12 +17,24 @@ import frauncesUrl from '@fontsource-variable/fraunces/files/fraunces-latin-full
 import sansUrl from '@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url';
 import monoUrl from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
 
-interface Props { title?: string; description?: string; ogImage?: string; jsonLd?: boolean; noindex?: boolean }
-const { title, description = site.description, ogImage = '/media/og.jpg', jsonLd = false, noindex = false } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogAlt?: string;
+  jsonLd?: boolean;
+  graph?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+const {
+  title, description = site.description, ogImage = '/media/og.jpg', jsonLd = false, graph, noindex = false,
+  ogAlt = `${site.fullName} at the river, beside the half-stache mark, his name, and the line: ${site.tagline}`,
+} = Astro.props;
 const siteUrl = String(Astro.site);
 const ids = { person: `${siteUrl}#sam`, company: `${siteUrl}#hutchware`, website: `${siteUrl}#website`, page: `${siteUrl}#profile` };
 // Structured data for the home page: the person, the company his client work runs through, the site,
 // the page itself as a profile page, and the two shipped apps. Facts come from the data files.
+// Other pages pass their own graph.
 const ld = jsonLd
   ? {
       '@context': 'https://schema.org',
@@ -83,7 +95,9 @@ const ld = jsonLd
         },
       ],
     }
-  : null;
+  : graph
+    ? { '@context': 'https://schema.org', '@graph': graph }
+    : null;
 const fullTitle = title ? `${title} · ${site.name}` : `${site.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const home = Astro.url.pathname === '/';
@@ -104,6 +118,8 @@ const nav: [string, string][] = [
     <meta name="robots" content={noindex ? 'noindex' : 'max-image-preview:large'} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preload" href={frauncesUrl} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={sansUrl} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={monoUrl} as="font" type="font/woff2" crossorigin />
@@ -116,7 +132,7 @@ const nav: [string, string][] = [
     <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${site.fullName} at the river, beside the half-stache mark, his name, and the line: ${site.tagline}`} />
+    <meta property="og:image:alt" content={ogAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     {ld && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
     <script is:inline>
@@ -131,7 +147,8 @@ const nav: [string, string][] = [
       }
     </script>
   </head>
-  <body>
+  <body id="top">
+    <div data-head-sentinel aria-hidden="true"></div>
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-head">
       <div class="wrap site-head__in">
@@ -148,5 +165,12 @@ const nav: [string, string][] = [
       <slot />
     </main>
     <Footer />
+    <a class="to-top" href="#top" aria-label="Back to top" data-to-top>
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 10l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    </a>
+    <script>
+      import { initNav } from '../scripts/nav';
+      initNav();
+    </script>
   </body>
 </html>
