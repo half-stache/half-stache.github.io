@@ -10,7 +10,7 @@ I'm a mechanical engineer by degree and a software developer by trade. I started
 - [LavaRise](https://apps.apple.com/us/app/lavarise/id6759515609): a pixel-art climbing game for iPhone, 100 levels across 10 chapters.
 - Riverstock: a hydrology model of the Little Red River below Greers Ferry Dam that predicts conditions at each access point. The model and data pipeline are built; the API and apps are next.
 - [Hutch's RV Park](https://hutchsrv.com): website, brand, and content system for my family's RV park in Searcy, Arkansas.
-- [Elrod Construction & Services](https://elrodconstructionservices.com): website, logo, and hero video for a home builder in Texarkana.
+- [Elrod Construction & Services](https://elrodconstructionservices.com): website and hero video for a home builder in Texarkana.
 
 <p>
   <img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/vectorshield.gif?v=2" width="49%" alt="VectorShield on an iPhone, cycling through the medication and product search, a medication check, and the restaurant finder">

@@ -10,7 +10,7 @@ The site is at https://half-stache.github.io: a home page, one page per project 
 - [Riverstock](https://half-stache.github.io/work/riverstock/): a hydrology model of the Little Red River below Greers Ferry Dam that predicts river conditions at each access point. The model and data pipeline are built; the API and apps are in progress.
 - [LavaRise](https://half-stache.github.io/work/lavarise/): a pixel-art climbing game for iPhone with 100 levels and 10 chapters. App Store: https://apps.apple.com/us/app/lavarise/id6759515609
 - [Hutch's RV Park](https://half-stache.github.io/work/hutchs-rv-park/): website, brand, and content system for the family RV park in Searcy, Arkansas. Site: https://hutchsrv.com
-- [Elrod Construction & Services](https://half-stache.github.io/work/elrod-construction/): website, logo, and hero video for a home builder in Texarkana. Site: https://elrodconstructionservices.com
+- [Elrod Construction & Services](https://half-stache.github.io/work/elrod-construction/): website and hero video for a home builder in Texarkana. Site: https://elrodconstructionservices.com
 
 ## Profiles
 
