@@ -18,7 +18,7 @@ export const projects: Project[] = [
     text: 'VectorShield is an app for people with alpha-gal syndrome, the tick-borne allergy to mammalian products. It scans products, checks medications against FDA data, and finds safe food, all tuned to one of four sensitivity levels, and a Chrome extension does the same on retail sites. I built it because I wish I’d had it when I was learning I had alpha-gal syndrome.',
     link: { label: 'Visit vectorshield.app', url: 'https://vectorshield.app' },
     icon: 'vectorshield-icon',
-    media: { phones: ['vectorshield-overview', 'vectorshield-medication', 'vectorshield-restaurants'] },
+    media: { phones: ['vectorshield-meds', 'vectorshield-medication', 'vectorshield-restaurants'] },
   },
   {
     slug: 'riverstock',

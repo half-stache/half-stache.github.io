@@ -41,3 +41,13 @@ def wordmark(text, out, size=200, tracking=-0.02):
 wordmark('half-stache', 'public/brand/wordmark-half-stache.svg')
 wordmark('Hutchware', 'public/brand/wordmark-hutchware.svg')
 wordmark('Sam Hutcherson', 'public/brand/wordmark-sam-hutcherson.svg')
+
+
+# Explicit-color variants, so a file opened on its own or dropped on a page reads correctly
+# without relying on currentColor: paper on dark, ink on light, red for Hutchware.
+import pathlib as _pathlib
+_B = _pathlib.Path('public/brand')
+for _name, (_dark, _light) in {'half-stache': ('#f1ece3', '#15120f'), 'sam-hutcherson': ('#f1ece3', '#15120f'), 'hutchware': ('#e8503f', '#c0271c')}.items():
+    _src = (_B / f'wordmark-{_name}.svg').read_text()
+    (_B / f'wordmark-{_name}-on-dark.svg').write_text(_src.replace('fill="currentColor"', f'fill="{_dark}"'))
+    (_B / f'wordmark-{_name}-on-light.svg').write_text(_src.replace('fill="currentColor"', f'fill="{_light}"'))
