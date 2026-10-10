@@ -38,10 +38,15 @@ version of the real mustache, update the `d` attribute in all three places.
 
 ## Deployment
 
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages.
+The site is served by GitHub Pages from the root of the `main` branch, with no GitHub Actions involved.
 
-One-time setup: in the repository on GitHub, open Settings, then Pages, and set "Build and deployment" Source to
-**GitHub Actions**. Until that is set, GitHub serves the raw repository root instead of the built site.
+```bash
+npm run publish   # builds, then copies dist/ to the repository root and writes .nojekyll
+git add -A && git commit -m "Publish" && git push origin main
+```
+
+`index.html`, `404.html`, `_astro/`, `brand/`, `media/`, `favicon.svg`, `llms.txt`, `robots.txt`, and the sitemap
+files at the root are build output. Do not edit them by hand; change the source and publish again.
 
 ## LavaRise privacy policy
 
