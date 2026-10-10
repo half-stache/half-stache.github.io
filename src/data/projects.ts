@@ -125,8 +125,8 @@ export const projects: Project[] = [
   {
     slug: 'elrod-construction',
     title: 'Elrod Construction & Services',
-    kind: 'Website, logo, and video',
-    text: 'Elrod Construction & Services builds homes in Texarkana. The owner needed a site, so I designed and built one on Astro, traced the logo from a raster original, and cut a hero video from the company’s own drone footage. Adding a project to the portfolio is as simple as sending a photo.',
+    kind: 'Website and video',
+    text: 'Elrod Construction & Services builds homes in Texarkana. The owner needed a site, so I designed and built one on Astro and cut a hero video from the company’s own drone footage. Adding a project to the portfolio is as simple as sending a photo.',
     link: { label: 'Visit elrodconstructionservices.com', url: 'https://elrodconstructionservices.com' },
     media: { image: 'elrod-home-desktop' },
     since: '2026',
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     platforms: ['Web'],
     built: ['Astro', 'Tailwind CSS', 'Cloudflare Pages'],
     more: [
-      'The site runs on Astro and Tailwind and is served by Cloudflare Pages. The logo was a raster file, so I traced it into a clean vector that scales from a favicon to a sign. The hero video is cut from the company’s own drone footage.',
+      'The site runs on Astro and Tailwind and is served by Cloudflare Pages. The logo is the company’s own. The hero video is cut from their drone footage, and the portfolio grows by sending me a photo.',
     ],
     shots: [
       { stem: 'elrod-home-desktop', alt: 'The elrodconstructionservices.com home page with the hero video', kind: 'desktop' },
