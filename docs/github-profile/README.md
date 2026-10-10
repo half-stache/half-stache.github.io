@@ -1,8 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://half-stache.github.io/brand/mark-on-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://half-stache.github.io/brand/mark-on-light.svg">
-  <img src="https://half-stache.github.io/brand/mark-on-light.svg" alt="The half-stache mark, a mustache that is red on the left and white on the right" width="160">
-</picture>
+<img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/hero.gif" width="100%" alt="The half-stache mark, a mustache that is red on the left and white on the right, over the slow red current from the top of half-stache.github.io">
 
 # Sam Hutcherson
 
@@ -15,6 +11,13 @@ I'm a mechanical engineer by degree and a software developer by trade. I started
 - Riverstock: a hydrology model of the Little Red River below Greers Ferry Dam that predicts conditions at each access point. The model and data pipeline are built; the API and apps are next.
 - [Hutch's RV Park](https://hutchsrv.com): website, brand, and content system for my family's RV park in Searcy, Arkansas.
 - [Elrod Construction & Services](https://elrodconstructionservices.com): website, logo, and hero video for a home builder in Texarkana.
+
+<p>
+  <img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/vectorshield.gif" width="49%" alt="VectorShield on an iPhone, cycling through the overview with today's risk score, a medication check, and the restaurant finder">
+  <img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/lavarise.gif" width="49%" alt="LavaRise on an iPhone, cycling through a climb above rising lava, the grappling hook, and the chapter select screen">
+</p>
+
+<img src="https://raw.githubusercontent.com/half-stache/half-stache/main/media/riverstock.svg" width="100%" alt="A release wave travelling down the Little Red River from Greers Ferry Dam to Ramsey Access, lighting up each access point at the hour the Riverstock model estimates it arrives">
 
 ## Elsewhere
 

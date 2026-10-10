@@ -99,6 +99,12 @@ cannot create repositories) and its `README.md` is the profile README, pushed fr
 profile repository and push. The profile fields, avatar, and the pin for this repository are set by hand per
 `docs/github-profile/SETTINGS.md`.
 
+The README carries four animated pieces, stored in that repository's `media/` folder and linked by raw URL:
+the hero current with the mark as a looping GIF, VectorShield and LavaRise phone loops built from the same
+screenshot sets the site uses, and the Riverstock release wave as an animated SVG timed by the model's hours.
+`scripts/readme-media/` here regenerates all four (see its README); the SVG and the phone loops reproduce byte
+for byte, the hero GIF depends on the capture. Keep each GIF under about 3 MB for GitHub's image proxy.
+
 ## Open items
 
 - The Riverstock hardware-first note is filed as half-stache/Riverstock issue #22.
